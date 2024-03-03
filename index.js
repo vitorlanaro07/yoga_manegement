@@ -11,15 +11,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 var students = [
-    { name: 'tobi', email: 'tobi@learnboost.com' },
-    { name: 'loki', email: 'loki@learnboost.com' },
-    { name: 'jane', email: 'jane@learnboost.com' }
+    { id: 1, name: 'fulano', genre: 'male' , status: 'active'},
+    { id: 2, name: 'ciclano', genre: 'female', status: 'inactive' },
+    { id: 3 ,name: 'beltrano', genre: 'male', status: 'interested' }
   ];
 
 
 app.get("/", (req, res) => {
     res.render('index', {
-        title: 'Testing'
+        title: 'Testing',
+        students: students
     });
 })
 

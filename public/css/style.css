@@ -1,8 +1,15 @@
 :root{
-    --side-color:#f1f7ff;
+    --side-color: #b7c0cd;
     --side-background: #333333;
     --body-background: #f2f7fb;
     --nav-background: #263544;
+    --color-table: #212529;
+    --white: #fff;
+    --inactive: #FF5370;
+    --active: #2ED8B6;
+    --interested: #4099FF;
+    /* #f2f7fb; */
+    /* #212529; */
 }
 
 *{
@@ -11,14 +18,22 @@
     box-sizing: border-box;
     font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: 500;
     font-style: normal;
+    color: #000;
+    text-transform:capitalize;
 }
 
 body{
     max-width: 1920px;
     margin: 0 auto;
     background-color: var(--body-background);
+}
+
+.container-nav{
+    height: 105px;
+    overflow: hidden;
+    box-shadow: gray 1px -7px 11px 5px;
 }
 
 .nav-logo{
@@ -29,6 +44,18 @@ body{
     position: fixed;
 }
 
+.nav-filter{
+    width: auto;
+    position: relative;
+    left: 240px;
+    background-color: var(--white);
+    height: 105px;
+}
+
+.nav-filter span{
+    color: var(--side-background);
+}
+
 .side-bar{
     background-color: var(--side-background);
     display: flex;
@@ -36,10 +63,11 @@ body{
     width: 240px;
     align-items: center;
     gap: 15px;
-    height: 100vw;
+    height: 100vh;
     float: left;
     position: fixed;
-    margin-top: 105px;
+    top: 105px;
+    max-height: 100vh;
 }
 
 .side-item{
@@ -47,12 +75,76 @@ body{
     color: var(--side-color);
 }
 
+.side-item:hover{
+    color: var(--white);
+}
+
 .side-item:first-child {
     margin-top: 1em;
 }
 
 .principal-content{
-    width: 80vw;
-    height: 100vw;
+    width: auto;
+    height: 100vh;
     margin-left: 240px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-students{
+    margin-top: 32px;
+    background-color: var(--white);
+    box-shadow: gray 0px 0px 17px -8px;
+    border-radius: 3px;
+}
+
+.table-students .title{
+    font-weight: 500;
+    font-size: 23px;
+    margin-left: 15px;
+    border-bottom: 1px solid;
+    display: inline;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+table tr{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.77);
+}
+
+tbody tr:hover{
+    background-color: rgba(208, 230, 243, 0.841);
+    cursor: pointer;
+}
+
+table th{
+    font-weight: bold;
+}
+
+table th, table td{
+    padding: 1em;
+    color: var(--color-table);
+    text-align: center;
+}
+
+.student-active{
+    background-color: var(--active);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.student-inactive{
+    background-color: var(--inactive);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.student-interested{
+    background-color: var(--interested);
+    padding: 5px;
+    border-radius: 4px;
 }
