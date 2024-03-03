@@ -1,0 +1,26 @@
+{
+  "name": "yoga_managment",
+  "version": "1.0.0",
+  "description": "This project is about a system which allow to manage the yoga students",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "yoga",
+    "management",
+    "students"
+  ],
+  "author": "Vitor S. Lanaro",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
