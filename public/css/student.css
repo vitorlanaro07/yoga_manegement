@@ -1,0 +1,160 @@
+.table-students{
+    margin-top: 32px;
+    background-color: var(--white);
+    box-shadow: gray 0px 0px 17px -8px;
+    border-radius: 3px;
+}
+
+.table-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.table-students .title{
+    font-weight: 500;
+    font-size: 23px;
+    margin-left: 37px;
+    border-bottom: 1px solid;
+    display: inline;
+}
+
+.new-student{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px !important;
+    margin-right: 26px;
+    cursor: pointer;
+}
+
+.new-student p, .new-student span{
+    font-size: 13px;
+    color: #828b15cf;
+    font-weight: 700;
+}
+
+.new-student:hover .text-button{
+    color: #df9c18cf !important;
+}
+
+.new-student:hover .material-symbols-outlined{
+    color: #df9c18cf !important;
+}
+
+.remove{
+    display: none !important;
+}
+
+.icon{
+    display: block;
+}
+
+.show{
+    display: block !important;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+table tr{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.77);
+}
+
+tbody tr:hover{
+    background-color: rgba(208, 230, 243, 0.841);
+    cursor: pointer;
+}
+
+table th{
+    font-weight: bold;
+}
+
+table th, table td{
+    padding: 1em;
+    color: var(--color-table);
+    text-align: center;
+}
+
+.student-active{
+    background-color: var(--active);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.student-inactive{
+    background-color: var(--inactive);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.student-interested{
+    background-color: var(--interested);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.forms-new-student{
+    display: none;
+    padding-top: 1em;
+    transition: all 1s ease-in-out;
+}
+
+
+
+.forms-new-student form{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.forms-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+}
+
+.forms-cel{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+input[type=text],input[type=tel], select{
+    border-radius: 3px;
+    padding: 2px 6px;
+}
+
+.form-align-center{
+    align-self: center;
+}
+
+.form-align-start{
+    margin: 0 46px -5px;
+}
+
+.forms-new-student textarea{
+    resize: none;
+    width: 80%;
+    margin: 0 auto 2em;
+    height: 100px;
+    padding: 5px 11px;
+}
+
+.button-form{
+    border-radius: 3px;
+    border: none;
+    background-color: var(--submit);
+    color: #FFF;
+    font-size: 19px;
+    padding: 7px 30px;
+    display: block;
+    width: max-content;
+    margin: 0 auto 1.5em;
+}
+
+.button-form:hover{
+    background-color: rgb(14, 104, 71);
+}

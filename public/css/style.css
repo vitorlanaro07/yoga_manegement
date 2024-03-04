@@ -8,6 +8,7 @@
     --inactive: #FF5370;
     --active: #2ED8B6;
     --interested: #4099FF;
+    --submit: #038857;
     /* #f2f7fb; */
     /* #212529; */
 }
@@ -30,59 +31,6 @@ body{
     background-color: var(--body-background);
 }
 
-.container-nav{
-    height: 105px;
-    overflow: hidden;
-    box-shadow: gray 1px -7px 11px 5px;
-}
-
-.nav-logo{
-    background-color: var(--nav-background);
-    width: 240px;
-    height: 105px;
-    text-align: center;
-    position: fixed;
-}
-
-.nav-filter{
-    width: auto;
-    position: relative;
-    left: 240px;
-    background-color: var(--white);
-    height: 105px;
-}
-
-.nav-filter span{
-    color: var(--side-background);
-}
-
-.side-bar{
-    background-color: var(--side-background);
-    display: flex;
-    flex-direction: column;
-    width: 240px;
-    align-items: center;
-    gap: 15px;
-    height: 100vh;
-    float: left;
-    position: fixed;
-    top: 105px;
-    max-height: 100vh;
-}
-
-.side-item{
-    text-decoration: none;
-    color: var(--side-color);
-}
-
-.side-item:hover{
-    color: var(--white);
-}
-
-.side-item:first-child {
-    margin-top: 1em;
-}
-
 .principal-content{
     width: auto;
     height: 100vh;
@@ -93,58 +41,3 @@ body{
     align-items: center;
 }
 
-.table-students{
-    margin-top: 32px;
-    background-color: var(--white);
-    box-shadow: gray 0px 0px 17px -8px;
-    border-radius: 3px;
-}
-
-.table-students .title{
-    font-weight: 500;
-    font-size: 23px;
-    margin-left: 15px;
-    border-bottom: 1px solid;
-    display: inline;
-}
-
-table{
-    border-collapse: collapse;
-}
-
-table tr{
-    border-bottom: 1px solid rgba(128, 128, 128, 0.77);
-}
-
-tbody tr:hover{
-    background-color: rgba(208, 230, 243, 0.841);
-    cursor: pointer;
-}
-
-table th{
-    font-weight: bold;
-}
-
-table th, table td{
-    padding: 1em;
-    color: var(--color-table);
-    text-align: center;
-}
-
-.student-active{
-    background-color: var(--active);
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.student-inactive{
-    background-color: var(--inactive);
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.student-interested{
-    background-color: var(--interested);
-    padding: 5px;
-    border-radius: 4px;
-}

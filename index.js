@@ -18,12 +18,12 @@ var students = [
 
 
 app.get("/", (req, res) => {
-    res.render('index', {
-        title: 'Testing',
+    res.render('student', {
+        title: 'Yoga Management',
         students: students
     });
 })
 
 app.listen(config.port, () => {
-    console.log("is open");
+    console.log("On:", config.url);
 })

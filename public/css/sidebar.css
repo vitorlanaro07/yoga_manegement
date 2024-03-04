@@ -1,0 +1,26 @@
+.side-bar{
+    background-color: var(--side-background);
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    align-items: center;
+    gap: 15px;
+    height: 100vh;
+    float: left;
+    position: fixed;
+    top: 105px;
+    max-height: 100vh;
+}
+
+.side-item{
+    text-decoration: none;
+    color: var(--side-color);
+}
+
+.side-item:hover{
+    color: var(--white);
+}
+
+.side-item:first-child {
+    margin-top: 1em;
+}
