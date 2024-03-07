@@ -1,6 +1,6 @@
-<%- include ('header.ejs') %>
-<%- include('logo-navbar.ejs') %>
-<%- include('sidebar.ejs') %>    
+<%- include ('./layout/header.ejs') %>
+<%- include('./layout/logo-navbar.ejs') %>
+<%- include('./layout/sidebar.ejs') %>    
 <div class="principal-content">
     <div class="table-students">
         <div class="table-head">
@@ -23,7 +23,8 @@
                 </thead>
                 <tbody>
                     <% students.forEach((student) =>{ %>
-                        <tr>
+                        
+                        <tr onclick="getId(this)">
                             <td><%= student.id %></td>
                             <td><%= student.name %></td>
                             <td><%= student.genre %></td>
@@ -42,7 +43,7 @@
             </table>
         </div>
         <div class="forms-new-student">
-            <form action="">
+            <form method="POST" action="/">
                 <div class="forms-row">
                     <div class="forms-cel">
                         <label for="name">Name</label>
@@ -76,12 +77,13 @@
                 </select>
 
                 <label for="issues" class="form-align-start">Issues</label>
-                <textarea name="issues" id="" cols="30" rows="10" ></textarea>
-                <button class="button-form">Submit</button>
+                <textarea name="issues" id="" cols="30" rows="10"></textarea>
+                <input  type="submit" class="button-form" value="Submit">
             </form>
         </div>
     </div>
 </div>
   
 <script src="/script/student.js"></script>
-<%- include ('footer.ejs')-%>
+<script src="/script/studentRead.js"></script>
+<%- include ('./layout/footer.ejs')-%>

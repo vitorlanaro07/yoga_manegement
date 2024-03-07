@@ -1,28 +1,19 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const path = require('path');
-const ejs = require("ejs");
 const config = require("./config/config");
+const studentRoutes = require('./routes/studentsRoutes');
+
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, 'public')));
 
-
-var students = [
-    { id: 1, name: 'fulano', genre: 'male' , status: 'active'},
-    { id: 2, name: 'ciclano', genre: 'female', status: 'inactive' },
-    { id: 3 ,name: 'beltrano', genre: 'male', status: 'interested' }
-  ];
-
-
-app.get("/", (req, res) => {
-    res.render('student', {
-        title: 'Yoga Management',
-        students: students
-    });
-})
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(studentRoutes);
 
 app.listen(config.port, () => {
     console.log("On:", config.url);
