@@ -24,4 +24,4 @@ changeToNew = () => {
     }
 }
 
-btnNewStudent.addEventListener("click", changeToNew)
+btnNewStudent.addEventListener("click", changeToNew);

@@ -24,8 +24,12 @@ router.post('/', (req, res) => {
 
 router.get('/student/:id', (req, res) => {
     let student = studentModel.students[req.params.id - 1];
+    
+    res.render('studentRead', {
+        title: 'Student Profile',
+        student: student
+    })
     console.log(student);
-    res.send(student);
 })
 
 module.exports = router;

@@ -24,7 +24,7 @@
                 <tbody>
                     <% students.forEach((student) =>{ %>
                         
-                        <tr onclick="getId(this)">
+                        <tr onclick="getId(this)" data-link>
                             <td><%= student.id %></td>
                             <td><%= student.name %></td>
                             <td><%= student.genre %></td>

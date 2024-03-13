@@ -17,9 +17,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
     color: #000;
     text-transform:capitalize;
@@ -29,6 +29,7 @@ body{
     max-width: 1920px;
     margin: 0 auto;
     background-color: var(--body-background);
+    
 }
 
 .principal-content{

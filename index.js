@@ -15,6 +15,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 app.use(studentRoutes);
 
+app.use((req, res) => {
+    res.status(404);
+    res.render('404',{
+        title: "Error 404"
+    })
+})
+
 app.listen(config.port, () => {
     console.log("On:", config.url);
 })
