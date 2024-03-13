@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/student.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/logo-navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,300,0,0" />
+</head>
+<body>
+    <div class="container-nav">
+        <div class="nav-logo">
+            <a href="/" class="link-logo" >
+                <img src="/images/logo.png" width="100px" height="100px" class="logo" alt="logo of a yoga practioner">
+            </a>
+        </div>
+        <div class="nav-filter">
+            <div class="container-search">
+                <div class="search">
+                    <input type="text" name="busca" id="" placeholder="Search student...">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span> 
+                </div>
+            </div>
+            <div class="filters">
+                <h3 class="title-filters">Filters</h3>
+                <div class="container-filters">
+                    <div class="filters-column">
+                        <span>
+                            <input type="checkbox" name="actives" id="actives">
+                            <label for="actives">Actives</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" name="inactive" id="inactive">
+                            <label for="inactive">Inactive</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" name="interested" id="interested">
+                            <label for="interested">Interested</label>
+                        </span>               
+                    </div>
+                    <div class="filters-column">
+                        <span>
+                            <input type="checkbox" name="orderingCrescent" id="orderingCrescent">
+                            <label for="orderingCrescent">A-Z</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" name="paid" id="paid">
+                        <label for="paid">Paid</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" name="maleFemale" id="maleFemale">
+                            <label for="maleFemale"  >Male-Female</label>
+                        </span>       
+                    </div>
+                    <div class="filters-column">
+                        <span>
+                            <input type="checkbox" name="orderingDecrescent" id="orderingDecrescent">
+                            <label for="orderingDerescent" >Z-A</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" name="unpaid" id="unpaid">
+                            <label for="unpaid" >Unpaid</label>
+                        </span>
+                        <span>
+                            <input type="checkbox" name="femaleMale" id="femaleMale">
+                            <label for="femaleMale"  >Female-Male</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="side-bar">
+        <a href="/students" class="side-item" data-link>Students</a>
+        <a href="/notifications" class="side-item" data-link>Notifications</a>
+        <a href="/payments" class="side-item" data-link>Payments</a>
+    </div>
+    <div class="principal-content">
+    </div>
+
+    <script type="module" src="./script/index.js"></script>
+</body>
+</html>
