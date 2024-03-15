@@ -1,31 +1,33 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require('path');
+const cors = require('cors')
 const config = require("./config/config");
-// const studentRoutes = require('./routes/studentsRoutes');
+const studentModel = require('./models/studentModel');
 
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public', 'script')));
-app.use(express.static(path.join(__dirname, 'views')));
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
-// app.use(studentRoutes);
+app.use(cors());
 
-app.get('/*', (req, res) => {
+
+
+app.get('/student', (req, res, next) => {
+    res.json(studentModel.students);
+}) 
+
+app.get('/*', (req, res, next) => {
+    
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+    next();
 })
 
-// app.use((req, res) => {
-//     res.status(404);
-//     res.render('404',{
-//         title: "Error 404"
-//     })
-// })
+// app.get('/', (req, res) => {
+//     res.json(studentModel.students);
+// }) 
 
 app.listen(config.port, () => {
     console.log("On:", config.url);
