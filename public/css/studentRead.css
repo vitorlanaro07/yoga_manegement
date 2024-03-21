@@ -1,0 +1,78 @@
+.student{
+    margin: 32px 0;
+    background-color: var(--white);
+    box-shadow: gray 0px 0px 17px -8px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 550px;
+}
+
+.icon-edit{
+    align-self: self-end;
+    cursor: pointer;
+    margin: 10px 12px 10px;
+}
+
+.student > div{
+    margin-bottom: 17px;
+    width: inherit;
+}
+
+.personal-information{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.img-profile{
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.email-link{
+    text-transform: lowercase;
+}
+
+
+.title{
+    margin-bottom: 10px;
+}
+
+.address, .issues, .others{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.address-container{
+    display: flex;
+    flex-direction: row;
+    width: 395px;
+    justify-content: space-between;
+}
+
+.issues-row, .others-row{
+    display: flex;
+    flex-direction: row;
+    width: 395px;
+    position: relative;
+    justify-content: space-between;
+}
+
+.others-row h4{
+    text-transform: none;
+}
+
+.document-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 16px 0 16px;
+    width: 395px !important;
+}
