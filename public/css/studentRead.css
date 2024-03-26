@@ -57,6 +57,12 @@
     justify-content: space-between;
 }
 
+.issues-container, .others-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
 .issues-row, .others-row{
     display: flex;
     flex-direction: row;
@@ -76,3 +82,14 @@
     margin: 16px 0 16px;
     width: 395px !important;
 }
+
+.issues-container textarea, .others-container textarea{
+    /* width: 300px; */
+    resize: none;
+    /* pointer-events: none; */
+}
+
+
+/* .issues-row textarea, .others-row textarea{
+
+} */

@@ -22,6 +22,7 @@ router.get("/students", (req, res) => {
 
 router.get('/student/:id', (req, res) => {
     let student = studentModel.students[req.params.id - 1];
+    console.log(student);
     res.render('studentRead', {
         title: `${student.name.toUpperCase()} | Yoga Management`,
         additionalCss: '/css/studentRead.css'
@@ -29,7 +30,7 @@ router.get('/student/:id', (req, res) => {
 })
 
 
-router.post('/students', (req, res) => {
+router.post("/students", (req, res) => {
     studentModel.lenght++;
     var newStudent = {
         id: studentModel.lenght,
@@ -38,7 +39,7 @@ router.post('/students', (req, res) => {
         status: req.body.status
     }
     studentModel.students.push(newStudent);
-    res.redirect('/students');
+    res.redirect('students');
     console.log('Student Posted!');
 })
 
