@@ -1,3 +1,61 @@
+/* .remove-student{
+    background: #000;
+    opacity: 0.3;
+} */
+
+.container-opacity{
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    content: "";
+    top: 0;
+    background: #000;
+    z-index: 10;
+    opacity: 0.6;
+}
+
+.box-warning{
+    display: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+    position: fixed;
+    top: 25vh;
+    z-index: 11;
+    padding: 40px 57px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.box-warning .message{
+    text-transform: none;
+}
+
+.buttons-warning{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons-warning buttons{
+    border: 1px solid black;
+    padding: 5px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.warning-yes{
+    background-color: var(--active);
+}
+
+.warning-no{
+    background-color: var(--inactive);
+}
+
+.buttons-warning buttons:hover{
+    opacity: 0.8;
+}
+
+
 .student{
     margin: 32px 0;
     background-color: var(--white);
@@ -9,14 +67,37 @@
     width: 550px;
 }
 
-.icon-edit{
-    align-self: self-end;
-    cursor: pointer;
-    margin: 10px 12px 10px;
+.buttons-container{
+    margin: 18px 0 10px;
+    display: flex;
+    justify-content: end;
+    padding-right: 20px;
+    gap: 1em;
 }
 
+.buttons{
+    border: none;
+    background: none;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    cursor: pointer;
+}
+
+.button-edit,.button-edit > span{
+    color: var(--interested);
+}
+
+.button-delete,.button-delete > span{
+    color: var(--inactive);
+}
+
+.buttons:hover, .buttons:hover span{
+    color: #000;
+}
+
+
 .student > div{
-    margin-bottom: 17px;
     width: inherit;
 }
 

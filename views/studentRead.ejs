@@ -2,14 +2,30 @@
 <%- include('./layout/logo-navbar.ejs') %>
 <%- include('./layout/sidebar.ejs') %>    
 
+<div class="container-opacity"></div>
 <div class="principal-content">
+    <div class="box-warning">
+        <h4 class="message">Are you certain about it?</h4>
+        <div class="buttons-warning">
+            <buttons class="warning-yes">Yes</buttons>
+            <buttons class="warning-no">No</buttons>
+        </div>
+    </div>
     <div class="student">
-        <span class="icon-edit">
-            <span class="material-symbols-outlined">
-            edit
-            </span>
-            Edit
-        </span>
+        <div class="buttons-container">
+            <button class="buttons icon-edit button-edit">
+                <span class="material-symbols-outlined">
+                    edit
+                </span>
+                Edit
+            </button>
+            <button class="buttons icon-delete button-delete">
+                <span class="material-symbols-outlined">
+                    delete
+                </span>
+                Delete
+            </button>
+        </div>
         <div class="personal-information">
             <span class="img-profile"></span>
             <div class="personal-container">
