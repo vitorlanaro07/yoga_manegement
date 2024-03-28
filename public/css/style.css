@@ -5,10 +5,18 @@
     --nav-background: #263544;
     --color-table: #212529;
     --white: #fff;
-    --inactive: #FF5370;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --info: #17a2b8;
+    /* --inactive: #FF5370;
     --active: #2ED8B6;
-    --interested: #4099FF;
-    --submit: #038857;
+    --interested: rgb(0, 98, 204);
+    --submit: #28a745; */
     /* #f2f7fb; */
     /* #212529; */
 }

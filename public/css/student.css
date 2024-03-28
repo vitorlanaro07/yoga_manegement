@@ -78,19 +78,19 @@ table th, table td{
 }
 
 .student-active{
-    background-color: var(--active);
+    background-color: var(--success);
     padding: 5px;
     border-radius: 4px;
 }
 
 .student-inactive{
-    background-color: var(--inactive);
+    background-color: var(--danger);
     padding: 5px;
     border-radius: 4px;
 }
 
 .student-interested{
-    background-color: var(--interested);
+    background-color: var(--warning);
     padding: 5px;
     border-radius: 4px;
 }

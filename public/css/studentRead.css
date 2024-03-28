@@ -37,18 +37,18 @@
 }
 
 .buttons-warning buttons{
-    border: 1px solid black;
     padding: 5px 15px;
     border-radius: 3px;
     cursor: pointer;
+    color: var(--light);
 }
 
 .warning-yes{
-    background-color: var(--active);
+    background-color: var(--success);
 }
 
 .warning-no{
-    background-color: var(--inactive);
+    background-color: var(--danger);
 }
 
 .buttons-warning buttons:hover{
@@ -80,20 +80,21 @@
     background: none;
     display: flex;
     flex-direction: row;
-    align-content: center;
+    align-items: center;
     cursor: pointer;
 }
 
 .button-edit,.button-edit > span{
-    color: var(--interested);
+    color: var(--info);
 }
 
 .button-delete,.button-delete > span{
-    color: var(--inactive);
+    color: var(--danger);
 }
 
 .buttons:hover, .buttons:hover span{
-    color: #000;
+    opacity: 0.85;
+    scale: 1.1;
 }
 
 
@@ -107,6 +108,12 @@
     justify-content: space-evenly;
 }
 
+.personal-container, .column-address{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
 .img-profile{
     width: 60px;
     height: 60px;
@@ -115,10 +122,37 @@
     align-self: center;
 }
 
+.input-editing{
+    border: 1px solid var(--dark) !important;
+
+}
+
+.student input{
+    border: none;
+    background: none;
+    padding: 3px !important;
+    font-size: 16px;
+    text-transform: none;
+}
+
+input::placeholder{
+    color: #000;
+}
+
+.labels{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.name{
+    font-size: 22px !important;
+    font-weight: 700;  
+}
+
 .email-link{
     text-transform: lowercase;
 }
-
 
 .title{
     margin-bottom: 10px;
@@ -129,14 +163,23 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    margin-top: 16px;
 }
 
 .address-container{
     display: flex;
-    flex-direction: row;
-    width: 395px;
+    flex-direction: column;
+}
+
+
+.column-address .labels{
     justify-content: space-between;
 }
+
+.column-address input{
+    width: 140px !important;
+}
+
 
 .issues-container, .others-container{
     display: flex;
@@ -168,6 +211,35 @@
     /* width: 300px; */
     resize: none;
     /* pointer-events: none; */
+}
+
+
+.button--disable{
+    background: #007bff96 !important;
+    cursor: auto !important;
+}
+
+.button--disable:hover{
+    scale: 1 !important;
+}
+
+.button-save{
+    padding: 8px 90px;
+    font-size: 16px;
+    margin: 20px 0 45px;
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+
+.button-save:hover{
+    background: var(--primary);
+    opacity: 8.5;
+    scale: 1.01;
 }
 
 

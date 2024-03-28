@@ -32,6 +32,7 @@ router.get('/student/:id', (req, res) => {
 
 router.post("/students", (req, res) => {
     studentModel.lenght++;
+    console.log(req.body);
     var newStudent = {
         id: studentModel.lenght,
         name: req.body.name,
@@ -40,7 +41,7 @@ router.post("/students", (req, res) => {
     }
     studentModel.students.push(newStudent);
     res.redirect('students');
-    console.log('Student Posted!');
+    // console.log('Student Posted!');
 })
 
 router.get('/notifications',(req, res) => {

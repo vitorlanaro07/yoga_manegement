@@ -11,185 +11,206 @@
             <buttons class="warning-no">No</buttons>
         </div>
     </div>
-    <div class="student">
-        <div class="buttons-container">
-            <button class="buttons icon-edit button-edit">
-                <span class="material-symbols-outlined">
-                    edit
+    <form action="/students" method="post">
+        <div class="student">
+            <div class="buttons-container">
+                <button class="buttons icon-edit button-edit">
+                    <span class="material-symbols-outlined">
+                        edit
+                    </span>
+                    Edit
+                </button>
+                <button class="buttons icon-delete button-delete">
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span>
+                    Delete
+                </button>
+            </div>
+            <div class="personal-information">
+                <span class="img-profile"></span>
+                <div class="personal-container">
+                    <input class="input-edit name" type="text" name="name"  placeholder="Vitor Santos Lanaro">
+                    <div class="labels">
+                        <label for="birthdate">Birthday:</label>
+                        <input class="input-edit" type="date" name="birthdate" id="" placeholder="07/10/2000"  onfocus="(this.type='date')">
+                    </div>
+                    <div class="labels">
+                        <label for="email">Email:</label>
+                        <input class="input-edit" type="text" name="email" id="" placeholder="vitor.lanaro@hotmail.com">
+                    </div>
+                    <div class="labels">
+                        <label for="phone">Phone:</label>
+                        <input class="input-edit" type="text" name="phone" id="" placeholder="(44) 99800-5430">
+                    </div>
+                </div>
+                <span class="age">
+                    <h4 class="age">23 Years</h4>
                 </span>
-                Edit
-            </button>
-            <button class="buttons icon-delete button-delete">
-                <span class="material-symbols-outlined">
-                    delete
-                </span>
-                Delete
-            </button>
+            </div>
+            <div class="address">
+                <h3 class="address-title title">Address</h3>
+                <div class="address-container">
+                    <div class="labels">
+                        <label for="city">City:</label>
+                        <input class="input-edit" type="text" name="city" id="" placeholder="Japurá">
+                    </div>
+                    <div class="labels">
+                        <label for="street">Street:</label>
+                        <input class="input-edit" type="text" name="street" id="" placeholder="Jaracatiá">
+                    </div>
+                    <div class="labels">
+                        <label for="state">State:</label>
+                        <input class="input-edit" type="text" name="state" id="" placeholder="PR">
+                    </div>
+                    <div class="labels">
+                        <label for="number">Number:</label>
+                        <input class="input-edit" type="text" name="number" id="" placeholder="366">
+                    </div>
+                </div>         
+            </div>
+            <div class="issues">
+                <h3 class="issues-title title">Issues</h3>
+                
+                <div class="issues-container has-check">
+                    <div class="issues-row">
+                        <h4 class="issues-name">Spine issues</h4>
+                        <div class="container-select">
+                            <label for="spineYes">Yes</label>
+                            <input type="checkbox" value="spineYes" id="spineYes" class="checkYes" disabled checked>
+                            <label for="spineNo">No</label>
+                            <input type="checkbox" value="spineNo" id="spineNo" disabled >
+                        </div>
+                    </div>
+                    <textarea name="spine" id="" disabled></textarea>
+                </div>
+
+                <div class="issues-container has-check">
+                    <div class="issues-row">
+                        <h4 class="issues-name">Surgery</h4>
+                        <div class="container-select">
+                            <label for="surgeryYes">Yes</label>
+                            <input type="checkbox" value="surgeryYes" id="surgeryYes" class="checkYes" disabled>
+                            <label for="surgeryNo">No</label>
+                            <input type="checkbox" value="surgeryNo" id="surgeryNo" disabled checked>
+                        </div>
+                    </div>
+                    <textarea name="surgery" id="" disabled></textarea>
+                </div>
+
+                <div class="issues-container has-check">
+                    <div class="issues-row">
+                        <h4 class="issues-name">Pain</h4>
+                        <div class="container-select">
+                            <label for="painYes">Yes</label>
+                            <input type="checkbox" value="painYes" class="checkYes" id="painYes" disabled>
+                            <label for="painNo">No</label>
+                            <input type="checkbox" value="painNo" id="painNo" disabled checked>
+                        </div>
+                    </div>
+                    <textarea name="pain" id="" disabled></textarea>
+                </div>
+                
+                <div class="issues-container">
+                    <div class="issues-row">
+                        <!-- <h4 class="issues-name">Hypertension</h4> -->
+                        <label for="hypertension">Hypertension</label>
+                        <div class="container-select">
+                            <label for="hyperYes">Yes</label>
+                            <input type="checkbox" value="yes" 
+                            name="hypertension" class="checkYes" disabled>
+                            <label for="hyperNo">No</label>
+                            <input type="checkbox" value="no" name="hypertension" id="hyperNo" disabled checked>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="issues-container">
+                    <div class="issues-row">
+                        <h4 class="issues-name">Heart Disease</h4>
+                        <div class="container-select">
+                            <label for="heartYes">Yes</label>
+                            <input type="checkbox" value="heartYes" class="checkYes" id="heartYes" disabled checked>
+                            <label for="heartNo">No</label>
+                            <input type="checkbox" value="heartNo" id="heartNo" disabled >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="issues-container">
+                    <div class="issues-row">
+                        <h4 class="issues-name">Hearing Issues</h4>
+                        <div class="container-select">
+                            <label for="hearingYes">Yes</label>
+                            <input type="checkbox" value="hearingYes" class="checkYes" id="hearingYes" disabled>
+                            <label for="hearingNo">No</label>
+                            <input type="checkbox" value="hearingNo" id="hearingNo" disabled checked>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="issues-container">
+                    <div class="issues-row">
+                        <h4 class="issues-name">Labyrinthitis</h4>
+                        <div class="container-select">
+                            <label for="labyYes">Yes</label>
+                            <input type="checkbox" value="labyYes" class="checkYes" id="labyYes" disabled>
+                            <label for="labyNo">No</label>
+                            <input type="checkbox" value="labyNo" id="labyNo" disabled checked>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="others">
+                <h3 class="others-title title">Others</h3>  
+                <div class="others-container">
+                    <div class="others-row">
+                        <h4 class="others-name">Already ever practiced Yoga</h4>
+                        <div class="container-select">
+                            <label for="practicedYes">Yes</label>
+                            <input type="checkbox" value="practicedYes" class="checkYes" id="practicedYes"  disabled>
+                            <label for="practicedNo">No</label>
+                            <input type="checkbox" value="practicedNo" id="practicedNo" checked disabled />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="others-container has-check">
+                    <div class="others-row">
+                        <h4 class="others-name">Practice any exercise</h4>
+                        <div class="container-select">
+                            <label for="anyExerYes">Yes</label>
+                            <input type="checkbox" value="anyExerYes" class="checkYes" id="anyExerYes" disabled checked>
+                            <label for="anyExerNo">No</label>
+                            <input type="checkbox" value="anyExerNo" id="anyExerNo" disabled >
+                        </div>
+                    </div>
+                    <textarea name="anyExercise" id="" disabled></textarea>
+                </div>
+
+                <div class="others-container has-check">
+                    <div class="others-row">
+                        <h4 class="others-name">Observation</h4>
+                        <div class="container-select">
+                            <label for="obsYes">Yes</label>
+                            <input type="checkbox" value="obsYes" class="checkYes" id="obsYes" checked disabled>
+                            <label for="obsNo">No</label>
+                            <input type="checkbox" value="obsNo" id="obsNo" disabled >
+                        </div>
+                    </div>
+                    <textarea name="obs" id="" disabled></textarea>
+                </div>  
+            </div>
+
+            <div class="document-options">
+                <a href="" class="document-down">document.pdf ↓</a>
+                <a href="" class="document-up">Upload new file ↑</a>
+            </div>   
+
+            <button class="button-save button--disable" disabled type="submit">Save</button>
         </div>
-        <div class="personal-information">
-            <span class="img-profile"></span>
-            <div class="personal-container">
-                <h3 class="name">Vitor Santos Lanaro</h3>
-                <h4 class="birthdate">Birthday: 18/07/2000</h4>
-                <h4 href="mailito:vitor.lanaro@hotmail.com" class="email">Email: <a href="" class="email-link">vitor.lanaro@hotmail.com</a></h4>
-                <h4 class="phone">Phone: (44) 99800-5430</h4>
-            </div>
-            <span class="age">
-                <h4 class="age">23 Years</h4>
-            </span>
-        </div>
-        <div class="address">
-            <h3 class="address-title title">Address</h3>
-            <div class="address-container">
-                <div class="column-address">
-                    <h4 class="city">City: Japurá</h4>
-                    <h4 class="street">Street: Jaracatiá</h4>
-                </div>
-                <div class="column-address">
-                    <h4 class="city">State: PR</h4>
-                    <h4 class="street">Number: 366</h4>
-                </div>
-            </div>         
-        </div>
-        <div class="issues">
-            <h3 class="issues-title title">Issues</h3>
-            
-            <div class="issues-container has-check">
-                <div class="issues-row">
-                    <h4 class="issues-name">Spine issues</h4>
-                    <div class="container-select">
-                        <label for="spineYes">Yes</label>
-                        <input type="checkbox" value="spineYes" id="spineYes" class="checkYes" disabled checked>
-                        <label for="spineNo">No</label>
-                        <input type="checkbox" value="spineNo" id="spineNo" disabled >
-                    </div>
-                </div>
-                <textarea name="spine" id="" disabled></textarea>
-            </div>
-
-            <div class="issues-container has-check">
-                <div class="issues-row">
-                    <h4 class="issues-name">Surgery</h4>
-                    <div class="container-select">
-                        <label for="surgeryYes">Yes</label>
-                        <input type="checkbox" value="surgeryYes" id="surgeryYes" class="checkYes" disabled>
-                        <label for="surgeryNo">No</label>
-                        <input type="checkbox" value="surgeryNo" id="surgeryNo" disabled checked>
-                    </div>
-                </div>
-                <textarea name="surgery" id="" disabled></textarea>
-            </div>
-
-            <div class="issues-container has-check">
-                <div class="issues-row">
-                    <h4 class="issues-name">Pain</h4>
-                    <div class="container-select">
-                        <label for="painYes">Yes</label>
-                        <input type="checkbox" value="painYes" class="checkYes" id="painYes" disabled>
-                        <label for="painNo">No</label>
-                        <input type="checkbox" value="painNo" id="painNo" disabled checked>
-                    </div>
-                </div>
-                <textarea name="pain" id="" disabled></textarea>
-            </div>
-            
-            <div class="issues-container">
-                <div class="issues-row">
-                    <h4 class="issues-name">Hypertension</h4>
-                    <div class="container-select">
-                        <label for="hyperYes">Yes</label>
-                        <input type="checkbox" value="hyperYes" class="checkYes" id="hyperYes" disabled>
-                        <label for="hyperNo">No</label>
-                        <input type="checkbox" value="hyperNo" id="hyperNo" disabled checked>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="issues-container">
-                <div class="issues-row">
-                    <h4 class="issues-name">Heart Disease</h4>
-                    <div class="container-select">
-                        <label for="heartYes">Yes</label>
-                        <input type="checkbox" value="heartYes" class="checkYes" id="heartYes" disabled checked>
-                        <label for="heartNo">No</label>
-                        <input type="checkbox" value="heartNo" id="heartNo" disabled >
-                    </div>
-                </div>
-            </div>
-            
-            <div class="issues-container">
-                <div class="issues-row">
-                    <h4 class="issues-name">Hearing Issues</h4>
-                    <div class="container-select">
-                        <label for="hearingYes">Yes</label>
-                        <input type="checkbox" value="hearingYes" class="checkYes" id="hearingYes" disabled>
-                        <label for="hearingNo">No</label>
-                        <input type="checkbox" value="hearingNo" id="hearingNo" disabled checked>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="issues-container">
-                <div class="issues-row">
-                    <h4 class="issues-name">Labyrinthitis</h4>
-                    <div class="container-select">
-                        <label for="labyYes">Yes</label>
-                        <input type="checkbox" value="labyYes" class="checkYes" id="labyYes" disabled>
-                        <label for="labyNo">No</label>
-                        <input type="checkbox" value="labyNo" id="labyNo" disabled checked>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="others">
-            <h3 class="others-title title">Others</h3>  
-            <div class="others-container">
-                <div class="others-row">
-                    <h4 class="others-name">Already ever practiced Yoga</h4>
-                    <div class="container-select">
-                        <label for="practicedYes">Yes</label>
-                        <input type="checkbox" value="practicedYes" class="checkYes" id="practicedYes"  disabled>
-                        <label for="practicedNo">No</label>
-                        <input type="checkbox" value="practicedNo" id="practicedNo" checked disabled >
-                    </div>
-                </div>
-            </div>
-
-            <div class="others-container has-check">
-                <div class="others-row">
-                    <h4 class="others-name">Practice any exercise</h4>
-                    <div class="container-select">
-                        <label for="anyExerYes">Yes</label>
-                        <input type="checkbox" value="anyExerYes" class="checkYes" id="anyExerYes" disabled checked>
-                        <label for="anyExerNo">No</label>
-                        <input type="checkbox" value="anyExerNo" id="anyExerNo" disabled >
-                    </div>
-                </div>
-                <textarea name="anyExercise" id="" disabled></textarea>
-            </div>
-
-            <div class="others-container has-check">
-                <div class="others-row">
-                    <h4 class="others-name">Observation</h4>
-                    <div class="container-select">
-                        <label for="obsYes">Yes</label>
-                        <input type="checkbox" value="obsYes" class="checkYes" id="obsYes" checked disabled>
-                        <label for="obsNo">No</label>
-                        <input type="checkbox" value="obsNo" id="obsNo" disabled >
-                    </div>
-                </div>
-                <textarea name="obs" id="" disabled></textarea>
-            </div>
-
-            
-        </div>
-
-        <div class="document-options">
-            <a href="" class="document-down">document.pdf ↓</a>
-            <a href="" class="document-up">Upload new file ↑</a>
-        </div>   
-    </div>
+    </form>
 </div>
   
 
