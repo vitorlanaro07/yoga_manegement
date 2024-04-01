@@ -4,14 +4,6 @@
     box-shadow: gray 1px -7px 11px 5px;
 }
 
-.nav-logo{
-    background-color: var(--nav-background);
-    width: 240px;
-    height: 105px;
-    text-align: center;
-    position: fixed;
-}
-
 .nav-filter{
     width: auto;
     position: relative;
@@ -35,9 +27,9 @@
 .container-search input{
     width: 24vw;
     border: 1px solid black;
-    border-radius: 29px;
+    border-radius: 29px !important;
     font-size: 1em;
-    padding: 7px 39px 7px 16px;
+    padding: 7px 39px 7px 16px !important;
 }
 
 .container-search input:focus .container-search span{

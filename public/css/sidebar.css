@@ -8,8 +8,17 @@
     height: 100vh;
     float: left;
     position: fixed;
-    top: 105px;
+    top: 0;
     max-height: 100vh;
+}
+
+.side-logo{
+    background-color: var(--nav-background);
+    width: inherit;
+    height: 105px;
+    text-align: center;
+    /* position: fixed; */
+    top: 0;
 }
 
 .side-item{

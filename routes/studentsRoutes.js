@@ -6,15 +6,15 @@ const studentModel = require('../models/studentModel');
 
 router.get("/", (req, res) => {
     res.render('index', {
-        title: 'Yoga Management',
-        additionalCss: ''
+        title: 'Index | Yoga Management',
+        additionalCss: '/css/index.css'
     });
 })
 
 router.get("/students", (req, res) => {
     res.render('students', {
         title: 'Students | Yoga Management',
-        additionalCss: '',
+        additionalCss: '/css/student.css',
         students: studentModel.students
     });
 })
