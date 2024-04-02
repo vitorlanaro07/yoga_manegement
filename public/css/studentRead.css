@@ -143,6 +143,7 @@ input::placeholder{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .name{
@@ -154,8 +155,19 @@ input::placeholder{
     text-transform: lowercase;
 }
 
+.status, .genre{
+    display: flex;
+    flex-direction: column;
+}
+
+.personal-container:last-child{
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .title{
     margin-bottom: 10px;
+    font-weight: 900;
 }
 
 .address, .issues, .others{
@@ -169,6 +181,12 @@ input::placeholder{
 .address-container{
     display: flex;
     flex-direction: column;
+    gap: 5px;
+    margin-right: 38px;
+}
+
+.address .labels{
+    width: 266px;
 }
 
 
@@ -213,21 +231,17 @@ input::placeholder{
     /* pointer-events: none; */
 }
 
-
-.button--disable{
-    background: #007bff96 !important;
-    cursor: auto !important;
+.buttons-forms{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
-.button--disable:hover{
-    scale: 1 !important;
-}
 
-.button-save{
+.buttons-forms button{
     padding: 8px 90px;
     font-size: 16px;
     margin: 20px 0 45px;
-    background: var(--primary);
     color: var(--light);
     border: none;
     border-radius: 3px;
@@ -235,13 +249,30 @@ input::placeholder{
 }
 
 
-
-.button-save:hover{
+.button-save{
     background: var(--primary);
-    opacity: 8.5;
+}
+
+.button-cancel{
+    background: var(--danger);
+}
+
+.button-save:hover, .button-cancel:hover{
+    opacity: 0.5;
     scale: 1.01;
 }
 
+.button--disable{
+    /* background: #007bff96 !important; */
+    opacity: 0.6;
+    cursor: auto !important;
+}
+
+.button--disable:hover{
+    scale: 1 !important;
+    opacity: 0.6;
+    /* background-color: !important; */
+}
 
 /* .issues-row textarea, .others-row textarea{
 

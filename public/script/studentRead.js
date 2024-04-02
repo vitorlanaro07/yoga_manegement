@@ -4,6 +4,36 @@ function getId(element){
     window.location.href = '/student/' + idStudent;
 }
 
+//canceling changes
+const btnCancel = document.querySelector('.button-cancel');
+
+cancelingChanges = (e) => {
+    e.preventDefault();
+
+    btnCancel.classList.add('button--disable');
+    btnSave.classList.add('button--disable');
+    btnSave.disabled = true;
+    btnCancel.disabled = true;
+
+    allSelects.forEach(select => {
+        select.disabled = true;
+    })
+
+    inputs.forEach(input => {
+        input.disabled = true;
+        input.classList.remove('input-editing');
+    })
+    
+    allCheckBoxes.forEach(checkbox => {
+        checkbox.disabled = true;
+    })
+    allTextAreas.forEach(textarea => {
+        textarea.disabled = true;
+    })
+}
+
+btnCancel.addEventListener("click", cancelingChanges)
+
 //submit changes
 const btnSubmit = document.querySelector('.button-save');
 
@@ -47,7 +77,8 @@ hasCheck.forEach(div => {
         if (e.target == checkYes){
             textArea.hidden = false;
         }   else if (e.target == checkNo){
-            textArea.hidden = true;       
+            textArea.hidden = true;      
+            textArea.value = ""; 
         }
     })
 
@@ -60,7 +91,7 @@ const inputs = document.querySelectorAll('.input-edit');
 const btnSave = document.querySelector('.button-save');
 const allCheckBoxes = document.querySelectorAll('[type ="checkbox"]:disabled');
 const allTextAreas = document.querySelectorAll("textarea");
-
+const allSelects = document.querySelectorAll('select');
 
 inputs.forEach(input => {
     input.disabled = true;
@@ -69,7 +100,15 @@ inputs.forEach(input => {
 editingStudent = (e) => {
     e.preventDefault();
     btnSave.classList.remove('button--disable');
+    btnCancel.classList.remove('button--disable');
+
     btnSave.disabled = false;
+    btnCancel.disabled = false;
+
+    allSelects.forEach(select => {
+        select.disabled = false;
+    })
+
     inputs.forEach(input => {
         input.disabled = false;
         input.classList.add('input-editing');

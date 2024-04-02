@@ -43,9 +43,27 @@
                         <input class="input-edit" type="text" name="phone" id="" placeholder="(44) 99800-5430">
                     </div>
                 </div>
-                <span class="age">
-                    <h4 class="age">23 Years</h4>
-                </span>
+                <div class="personal-container">
+                    <span class="age">
+                        <h4 class="age">23 Years</h4>
+                    </span>
+                    <div class="labels genre">
+                        <label for="genre">Genre</label>
+                        <select name="genre" disabled>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="labels status">
+                        <label for="status">Status</label>
+                        <select name="status" disabled>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="interested">Interested</option>
+                        </select>
+                    </div>
+                </div>
+                
             </div>
             <div class="address">
                 <h3 class="address-title title">Address</h3>
@@ -73,12 +91,13 @@
                 
                 <div class="issues-container has-check">
                     <div class="issues-row">
-                        <h4 class="issues-name">Spine issues</h4>
+                        <!-- <h4 class="issues-name"></h4> -->
+                        <label for="spine">Spine issues</label>
                         <div class="container-select">
                             <label for="spineYes">Yes</label>
-                            <input type="checkbox" value="spineYes" id="spineYes" class="checkYes" disabled checked>
+                            <input type="checkbox" value="yes" name="spine" class="checkYes" disabled checked>
                             <label for="spineNo">No</label>
-                            <input type="checkbox" value="spineNo" id="spineNo" disabled >
+                            <input type="checkbox" value="no" name="spine" disabled >
                         </div>
                     </div>
                     <textarea name="spine" id="" disabled></textarea>
@@ -86,12 +105,14 @@
 
                 <div class="issues-container has-check">
                     <div class="issues-row">
-                        <h4 class="issues-name">Surgery</h4>
+                        <!-- <h4 class="issues-name"></h4> -->
+                        <label for="surgery">Surgery</label>
+
                         <div class="container-select">
                             <label for="surgeryYes">Yes</label>
-                            <input type="checkbox" value="surgeryYes" id="surgeryYes" class="checkYes" disabled>
+                            <input type="checkbox" value="yes" name="surgery" class="checkYes" disabled>
                             <label for="surgeryNo">No</label>
-                            <input type="checkbox" value="surgeryNo" id="surgeryNo" disabled checked>
+                            <input type="checkbox" value="no" name="surgery" disabled checked>
                         </div>
                     </div>
                     <textarea name="surgery" id="" disabled></textarea>
@@ -99,12 +120,14 @@
 
                 <div class="issues-container has-check">
                     <div class="issues-row">
-                        <h4 class="issues-name">Pain</h4>
+                        <!-- <h4 class="issues-name"></h4> -->
+                        <label for="pain">Pain</label>
+
                         <div class="container-select">
                             <label for="painYes">Yes</label>
-                            <input type="checkbox" value="painYes" class="checkYes" id="painYes" disabled>
+                            <input type="checkbox" value="yes" class="checkYes" name="pain" disabled>
                             <label for="painNo">No</label>
-                            <input type="checkbox" value="painNo" id="painNo" disabled checked>
+                            <input type="checkbox" value="no" name="pain" disabled checked>
                         </div>
                     </div>
                     <textarea name="pain" id="" disabled></textarea>
@@ -112,7 +135,6 @@
                 
                 <div class="issues-container">
                     <div class="issues-row">
-                        <!-- <h4 class="issues-name">Hypertension</h4> -->
                         <label for="hypertension">Hypertension</label>
                         <div class="container-select">
                             <label for="hyperYes">Yes</label>
@@ -126,36 +148,42 @@
                 
                 <div class="issues-container">
                     <div class="issues-row">
-                        <h4 class="issues-name">Heart Disease</h4>
+                        <!-- <h4 class="issues-name"></h4> -->
+                        <label for="heartDisease">Heart Disease</label>
+
                         <div class="container-select">
                             <label for="heartYes">Yes</label>
-                            <input type="checkbox" value="heartYes" class="checkYes" id="heartYes" disabled checked>
+                            <input type="checkbox" value="yes" class="checkYes" name="heartDisease" disabled checked>
                             <label for="heartNo">No</label>
-                            <input type="checkbox" value="heartNo" id="heartNo" disabled >
+                            <input type="checkbox" value="no" name="heartDisease" disabled >
                         </div>
                     </div>
                 </div>
                 
                 <div class="issues-container">
                     <div class="issues-row">
-                        <h4 class="issues-name">Hearing Issues</h4>
+                        <!-- <h4 class="issues-name"></h4> -->
+                        <label for="hearingIssues">Hearing Issues</label>
+
                         <div class="container-select">
                             <label for="hearingYes">Yes</label>
-                            <input type="checkbox" value="hearingYes" class="checkYes" id="hearingYes" disabled>
+                            <input type="checkbox" value="yes" class="checkYes" name="hearingIssues" disabled>
                             <label for="hearingNo">No</label>
-                            <input type="checkbox" value="hearingNo" id="hearingNo" disabled checked>
+                            <input type="checkbox" value="no" name="hearingIssues" disabled checked>
                         </div>
                     </div>
                 </div>
                 
                 <div class="issues-container">
                     <div class="issues-row">
-                        <h4 class="issues-name">Labyrinthitis</h4>
+                        <!-- <h4 class="issues-name"></h4> -->
+                        <label for="labyrinthitis">Labyrinthitis</label>
+
                         <div class="container-select">
                             <label for="labyYes">Yes</label>
-                            <input type="checkbox" value="labyYes" class="checkYes" id="labyYes" disabled>
+                            <input type="checkbox" value="yes" class="checkYes" name="labyrinthitis" disabled>
                             <label for="labyNo">No</label>
-                            <input type="checkbox" value="labyNo" id="labyNo" disabled checked>
+                            <input type="checkbox" value="no" name="labyrinthitis" disabled checked>
                         </div>
                     </div>
                 </div>
@@ -165,24 +193,28 @@
                 <h3 class="others-title title">Others</h3>  
                 <div class="others-container">
                     <div class="others-row">
-                        <h4 class="others-name">Already ever practiced Yoga</h4>
+                        <!-- <h4 class="others-name"></h4> -->
+                        <label for="alreadyPracticed">Already ever practiced Yoga</label>
+
                         <div class="container-select">
                             <label for="practicedYes">Yes</label>
-                            <input type="checkbox" value="practicedYes" class="checkYes" id="practicedYes"  disabled>
+                            <input type="checkbox" value="yes" class="checkYes" name="alreadyPracticed"  disabled>
                             <label for="practicedNo">No</label>
-                            <input type="checkbox" value="practicedNo" id="practicedNo" checked disabled />
+                            <input type="checkbox" value="no" name="alreadyPracticed" checked disabled />
                         </div>
                     </div>
                 </div>
 
                 <div class="others-container has-check">
                     <div class="others-row">
-                        <h4 class="others-name">Practice any exercise</h4>
+                        <!-- <h4 class="others-name"></h4> -->
+                        <label for="anyExercise">Practice any exercise</label>
+
                         <div class="container-select">
                             <label for="anyExerYes">Yes</label>
-                            <input type="checkbox" value="anyExerYes" class="checkYes" id="anyExerYes" disabled checked>
+                            <input type="checkbox" value="yes" class="checkYes" name="anyExercise" disabled checked>
                             <label for="anyExerNo">No</label>
-                            <input type="checkbox" value="anyExerNo" id="anyExerNo" disabled >
+                            <input type="checkbox" value="no" name="anyExercise" disabled >
                         </div>
                     </div>
                     <textarea name="anyExercise" id="" disabled></textarea>
@@ -190,12 +222,14 @@
 
                 <div class="others-container has-check">
                     <div class="others-row">
-                        <h4 class="others-name">Observation</h4>
+                        <!-- <h4 class="others-name"></h4> -->
+                        <label for="obs">Observation</label>
+
                         <div class="container-select">
                             <label for="obsYes">Yes</label>
-                            <input type="checkbox" value="obsYes" class="checkYes" id="obsYes" checked disabled>
+                            <input type="checkbox" value="yes" class="checkYes" name="obs" checked disabled>
                             <label for="obsNo">No</label>
-                            <input type="checkbox" value="obsNo" id="obsNo" disabled >
+                            <input type="checkbox" value="no" name="obs" disabled >
                         </div>
                     </div>
                     <textarea name="obs" id="" disabled></textarea>
@@ -207,7 +241,11 @@
                 <a href="" class="document-up">Upload new file ↑</a>
             </div>   
 
-            <button class="button-save button--disable" disabled type="submit">Save</button>
+            <div class="buttons-forms">
+                <button class="button-save button--disable" disabled type="submit">Save</button>
+                <button class="button-cancel button--disable" disabled>Cancel</button>
+            </div>
+            
         </div>
     </form>
 </div>
