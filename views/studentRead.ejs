@@ -10,7 +10,7 @@
             <buttons class="warning-no">No</buttons>
         </div>
     </div>
-    <form action="/students" method="post">
+    <form action="/student/<%- id %>" method="post">
         <div class="student">
             <div class="buttons-container">
                 <button class="buttons icon-edit button-edit">
@@ -29,18 +29,18 @@
             <div class="personal-information">
                 <span class="img-profile"></span>
                 <div class="personal-container">
-                    <input class="input-edit name" type="text" name="name"  placeholder="Vitor Santos Lanaro">
+                    <input class="input-edit name" type="text" name="name">
                     <div class="labels">
                         <label for="birthdate">Birthday:</label>
-                        <input class="input-edit" type="date" name="birthdate" id="" placeholder="07/10/2000"  onfocus="(this.type='date')">
+                        <input class="input-edit birthdate" type="date" name="birthdate"  min="1997-01-01" max="2030-12-31">
                     </div>
                     <div class="labels">
                         <label for="email">Email:</label>
-                        <input class="input-edit" type="text" name="email" id="" placeholder="vitor.lanaro@hotmail.com">
+                        <input class="input-edit email" type="text" name="email" id="" placeholder="">
                     </div>
                     <div class="labels">
                         <label for="phone">Phone:</label>
-                        <input class="input-edit" type="text" name="phone" id="" placeholder="(44) 99800-5430">
+                        <input class="input-edit phone" type="text" name="phone" id="" placeholder="">
                     </div>
                 </div>
                 <div class="personal-container">
@@ -49,14 +49,14 @@
                     </span>
                     <div class="labels genre">
                         <label for="genre">Genre</label>
-                        <select name="genre" disabled>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                        <select class="genre-input" name="genre" disabled>
+                            <option value="male">Male</option> 
+                            <option value="female" >Female</option>  
                         </select>
                     </div>
                     <div class="labels status">
                         <label for="status">Status</label>
-                        <select name="status" disabled>
+                        <select name="status" class="status-input" disabled>
                             <option value="active">Active</option>
                             <option value="inactive">Inactive</option>
                             <option value="interested">Interested</option>
@@ -70,40 +70,40 @@
                 <div class="address-container">
                     <div class="labels">
                         <label for="city">City:</label>
-                        <input class="input-edit" type="text" name="city" id="" placeholder="Japurá">
+                        <input class="input-edit city" type="text" name="city" >
                     </div>
                     <div class="labels">
                         <label for="street">Street:</label>
-                        <input class="input-edit" type="text" name="street" id="" placeholder="Jaracatiá">
+                        <input class="input-edit street" type="text" name="street" id="" placeholder="">
                     </div>
                     <div class="labels">
                         <label for="state">State:</label>
-                        <input class="input-edit" type="text" name="state" id="" placeholder="PR">
+                        <input class="input-edit state" type="text" name="state" id="" placeholder="">
                     </div>
                     <div class="labels">
                         <label for="number">Number:</label>
-                        <input class="input-edit" type="text" name="number" id="" placeholder="366">
+                        <input class="input-edit number" type="text" name="number" id="" placeholder="">
                     </div>
                 </div>         
             </div>
             <div class="issues">
                 <h3 class="issues-title title">Issues</h3>
                 
-                <div class="issues-container has-check">
+                <div class="issues-container has-check check-container">
                     <div class="issues-row">
                         <!-- <h4 class="issues-name"></h4> -->
                         <label for="spine">Spine issues</label>
                         <div class="container-select">
                             <label for="spineYes">Yes</label>
-                            <input type="checkbox" value="yes" name="spine" class="checkYes" disabled checked>
+                            <input type="checkbox" value="yes" name="spine" class="spine" disabled >
                             <label for="spineNo">No</label>
-                            <input type="checkbox" value="no" name="spine" disabled >
+                            <input type="checkbox" value="no" name="spine" class="spine" disabled >
                         </div>
                     </div>
-                    <textarea name="spine" id="" disabled></textarea>
+                    <textarea name="spine" class="spine" disabled></textarea>
                 </div>
 
-                <div class="issues-container has-check">
+                <div class="issues-container has-check check-container">
                     <div class="issues-row">
                         <!-- <h4 class="issues-name"></h4> -->
                         <label for="surgery">Surgery</label>
@@ -118,7 +118,7 @@
                     <textarea name="surgery" id="" disabled></textarea>
                 </div>
 
-                <div class="issues-container has-check">
+                <div class="issues-container has-check check-container">
                     <div class="issues-row">
                         <!-- <h4 class="issues-name"></h4> -->
                         <label for="pain">Pain</label>
@@ -133,7 +133,7 @@
                     <textarea name="pain" id="" disabled></textarea>
                 </div>
                 
-                <div class="issues-container">
+                <div class="issues-container check-container">
                     <div class="issues-row">
                         <label for="hypertension">Hypertension</label>
                         <div class="container-select">
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 
-                <div class="issues-container">
+                <div class="issues-container check-container">
                     <div class="issues-row">
                         <!-- <h4 class="issues-name"></h4> -->
                         <label for="heartDisease">Heart Disease</label>
@@ -160,7 +160,7 @@
                     </div>
                 </div>
                 
-                <div class="issues-container">
+                <div class="issues-container check-container">
                     <div class="issues-row">
                         <!-- <h4 class="issues-name"></h4> -->
                         <label for="hearingIssues">Hearing Issues</label>
@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 
-                <div class="issues-container">
+                <div class="issues-container check-container">
                     <div class="issues-row">
                         <!-- <h4 class="issues-name"></h4> -->
                         <label for="labyrinthitis">Labyrinthitis</label>
@@ -191,7 +191,7 @@
 
             <div class="others">
                 <h3 class="others-title title">Others</h3>  
-                <div class="others-container">
+                <div class="others-container check-container">
                     <div class="others-row">
                         <!-- <h4 class="others-name"></h4> -->
                         <label for="alreadyPracticed">Already ever practiced Yoga</label>
@@ -205,7 +205,7 @@
                     </div>
                 </div>
 
-                <div class="others-container has-check">
+                <div class="others-container has-check check-container">
                     <div class="others-row">
                         <!-- <h4 class="others-name"></h4> -->
                         <label for="anyExercise">Practice any exercise</label>
@@ -217,10 +217,10 @@
                             <input type="checkbox" value="no" name="anyExercise" disabled >
                         </div>
                     </div>
-                    <textarea name="anyExercise" id="" disabled></textarea>
+                    <textarea name="anyExercise" id="" disabled value=""></textarea>
                 </div>
 
-                <div class="others-container has-check">
+                <div class="others-container has-check check-container">
                     <div class="others-row">
                         <!-- <h4 class="others-name"></h4> -->
                         <label for="obs">Observation</label>
@@ -232,7 +232,7 @@
                             <input type="checkbox" value="no" name="obs" disabled >
                         </div>
                     </div>
-                    <textarea name="obs" id="" disabled></textarea>
+                    <textarea name="obs" value="hello" disabled></textarea>
                 </div>  
             </div>
 

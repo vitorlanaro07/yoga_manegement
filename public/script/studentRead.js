@@ -1,8 +1,50 @@
 //getting the student
 function getId(element){
-    let idStudent = element.children[0].innerHTML
+    let idStudent = element.children[0].innerHTML;
     window.location.href = '/student/' + idStudent;
 }
+let id = window.location.href.split('/')[4];
+
+
+//fetching data async and showing
+const namePlace = document.querySelector('.name');
+const birthdate = document.querySelector('.birthdate');
+const genre = document.querySelector('.genre-input');
+const status = document.querySelector('.status-input');
+const email = document.querySelector('.email');
+const phone = document.querySelector('.phone');
+const city = document.querySelector('.city');
+const street = document.querySelector('.street');
+const state = document.querySelector('.state');
+const number = document.querySelector('.number');
+const spine = document.querySelectorAll('.spine');
+
+fetch("/student/json/"+id).then(
+    (response) => response.json()
+).then(data => {
+    namePlace.value = data.name;
+    birthdate.value = data.birthdate;
+    genre.value = data.genre,
+    status.value = data.status,
+    email.value = data.email,
+    phone.value = data.phone,
+    city.value = data.city,
+    street.value = data.street,
+    state.value = data.state,
+    number.value = data.number
+    // spine.value = data.spine
+    // console.log(data.spine);
+    // console.log(spine)
+    if(data.spine[0] == "yes"){
+        spine[0].checked = true;
+        spine[2].value = data.spine[1];
+        spine[2].hidden = false;
+
+    }else{
+        spine[1].checked = true
+    }
+})
+
 
 //canceling changes
 const btnCancel = document.querySelector('.button-cancel');
@@ -36,53 +78,6 @@ btnCancel.addEventListener("click", cancelingChanges)
 
 //submit changes
 const btnSubmit = document.querySelector('.button-save');
-
-// postingData = () => {
-
-// }
-
-// btnSubmit.addEventListener('submit', postingData)
-
-//working with others check, but only one can be checked
-const checkBoxes = document.querySelectorAll('.container-select');
-
-checkBoxes.forEach(check => {
-    const checkYes = check.children[1];
-    const checkNo = check.children[3];
-
-    checkYes.addEventListener('click', () => {
-        if(checkNo.checked == true){
-            checkYes.checked = true;
-            checkNo.checked = false;
-        }
-    })
-    checkNo.addEventListener('click', () => {
-        if(checkYes.checked == true){
-            checkNo.checked = true;
-            checkYes.checked = false;
-        }
-    })
-})
-
-
-//listening check box to open text area
-const hasCheck = document.querySelectorAll('.has-check');
-
-hasCheck.forEach(div => {
-    let textArea = div.children[1];
-    const checkYes = div.children[0].children[1].children[1];
-    const checkNo = div.children[0].children[1].children[3];
-
-    div.addEventListener('click', (e) => {
-        if (e.target == checkYes){
-            textArea.hidden = false;
-        }   else if (e.target == checkNo){
-            textArea.hidden = true;      
-            textArea.value = ""; 
-        }
-    })
-
-})
 
 
 //editing student
@@ -155,26 +150,52 @@ btnDelete.addEventListener('click', openingWarning);
 
 
 
-//checking the chekbox to open text if there is.
-const checkContainer = [...document.querySelectorAll('.has-check')];
-
-checkContainer.forEach(div => {
-    let option = {
-        checkBoxes: [...div.children[0].children[1].children],
-        textAreaChild: div.children[1]
-    } 
-    
-    option.checkBoxes.forEach(check => {
-        if (check.tagName !== "LABEL"){
-            if(check.classList.contains('checkYes')){
-                if(check.checked === true){
-                    option.textAreaChild.hidden = false;
-                }    else {
-                    option.textAreaChild.hidden = true;
-                }
-            }
-            
+function listeningClicks(checkYes, checkNo, hasTextArea){
+    checkYes.addEventListener('click', () => {
+        if(checkNo.checked == true && hasTextArea){
+            hasTextArea.hidden = false;
+            checkYes.checked = true;
+            checkNo.checked = false;
+        } else if (checkNo.checked == true){
+            checkYes.checked = true;
+            checkNo.checked = false;
         }
     })
-})
 
+    checkNo.addEventListener('click', () => {
+        if(checkYes.checked == true && hasTextArea){
+            hasTextArea.hidden = true;
+            checkNo.checked = true;
+            checkYes.checked = false;
+        }else if (checkYes.checked == true){
+            checkYes.checked = false;
+            checkNo.checked = true;
+        }
+    })
+}
+
+
+//verifying all checksboxes, confering if it has text-area, if the student data
+const allCheck = document.querySelectorAll('.check-container');
+
+allCheck.forEach(check => {
+    const checkYes = check.children[0].children[1].children[1];
+    const checkNo = check.children[0].children[1].children[3];
+    
+    if(check.classList.contains('has-check')){
+        const textArea = check.children[1];
+
+        //closing text area on click
+        listeningClicks(checkYes, checkNo, textArea);
+        console.log(check)
+
+        //closing text area on load
+        if(checkYes.checked == true){
+            textArea.hidden = false;
+        } else {
+            textArea.hidden = true;
+        }
+    }else{
+        listeningClicks(checkYes, checkNo, undefined);
+    }
+});
