@@ -36,11 +36,11 @@
                     </div>
                     <div class="labels">
                         <label for="email">Email:</label>
-                        <input class="input-edit email" type="text" name="email" id="" placeholder="">
+                        <input class="input-edit email" type="text" name="email"  placeholder="">
                     </div>
                     <div class="labels">
                         <label for="phone">Phone:</label>
-                        <input class="input-edit phone" type="text" name="phone" id="" placeholder="">
+                        <input class="input-edit phone" type="text" name="phone"  placeholder="">
                     </div>
                 </div>
                 <div class="personal-container">
@@ -74,15 +74,15 @@
                     </div>
                     <div class="labels">
                         <label for="street">Street:</label>
-                        <input class="input-edit street" type="text" name="street" id="" placeholder="">
+                        <input class="input-edit street" type="text" name="street"  placeholder="">
                     </div>
                     <div class="labels">
                         <label for="state">State:</label>
-                        <input class="input-edit state" type="text" name="state" id="" placeholder="">
+                        <input class="input-edit state" type="text" name="state"  placeholder="">
                     </div>
                     <div class="labels">
                         <label for="number">Number:</label>
-                        <input class="input-edit number" type="text" name="number" id="" placeholder="">
+                        <input class="input-edit number" type="text" name="number"  placeholder="">
                     </div>
                 </div>         
             </div>
@@ -110,12 +110,12 @@
 
                         <div class="container-select">
                             <label for="surgeryYes">Yes</label>
-                            <input type="checkbox" value="yes" name="surgery" class="checkYes" disabled>
+                            <input type="checkbox" value="yes" name="surgery" class="surgery" disabled>
                             <label for="surgeryNo">No</label>
-                            <input type="checkbox" value="no" name="surgery" disabled checked>
+                            <input type="checkbox" value="no" name="surgery" disabled class="surgery">
                         </div>
                     </div>
-                    <textarea name="surgery" id="" disabled></textarea>
+                    <textarea name="surgery" class="surgery" disabled></textarea>
                 </div>
 
                 <div class="issues-container has-check check-container">
@@ -125,12 +125,12 @@
 
                         <div class="container-select">
                             <label for="painYes">Yes</label>
-                            <input type="checkbox" value="yes" class="checkYes" name="pain" disabled>
+                            <input type="checkbox" value="yes" class="pain" name="pain" disabled>
                             <label for="painNo">No</label>
-                            <input type="checkbox" value="no" name="pain" disabled checked>
+                            <input type="checkbox" value="no" name="pain" disabled class="pain">
                         </div>
                     </div>
-                    <textarea name="pain" id="" disabled></textarea>
+                    <textarea name="pain" class="pain" disabled></textarea>
                 </div>
                 
                 <div class="issues-container check-container">
@@ -139,9 +139,9 @@
                         <div class="container-select">
                             <label for="hyperYes">Yes</label>
                             <input type="checkbox" value="yes" 
-                            name="hypertension" class="checkYes" disabled>
+                            name="hypertension" class="hypertension" disabled>
                             <label for="hyperNo">No</label>
-                            <input type="checkbox" value="no" name="hypertension" id="hyperNo" disabled checked>
+                            <input type="checkbox" value="no" name="hypertension" class="hypertension" disabled>
                         </div>
                     </div>
                 </div>
@@ -153,9 +153,9 @@
 
                         <div class="container-select">
                             <label for="heartYes">Yes</label>
-                            <input type="checkbox" value="yes" class="checkYes" name="heartDisease" disabled checked>
+                            <input type="checkbox" value="yes" class="heartDisease" name="heartDisease" disabled >
                             <label for="heartNo">No</label>
-                            <input type="checkbox" value="no" name="heartDisease" disabled >
+                            <input type="checkbox" value="no" name="heartDisease" disabled class="heartDisease">
                         </div>
                     </div>
                 </div>
@@ -167,9 +167,9 @@
 
                         <div class="container-select">
                             <label for="hearingYes">Yes</label>
-                            <input type="checkbox" value="yes" class="checkYes" name="hearingIssues" disabled>
+                            <input type="checkbox" value="yes" class="hearingIssues" name="hearingIssues" disabled>
                             <label for="hearingNo">No</label>
-                            <input type="checkbox" value="no" name="hearingIssues" disabled checked>
+                            <input type="checkbox" value="no" name="hearingIssues" disabled class="hearingIssues">
                         </div>
                     </div>
                 </div>
@@ -181,9 +181,9 @@
 
                         <div class="container-select">
                             <label for="labyYes">Yes</label>
-                            <input type="checkbox" value="yes" class="checkYes" name="labyrinthitis" disabled>
+                            <input type="checkbox" value="yes" class="labyrinthitis" name="labyrinthitis" disabled>
                             <label for="labyNo">No</label>
-                            <input type="checkbox" value="no" name="labyrinthitis" disabled checked>
+                            <input type="checkbox" value="no" name="labyrinthitis" disabled class="labyrinthitis">
                         </div>
                     </div>
                 </div>
@@ -198,9 +198,9 @@
 
                         <div class="container-select">
                             <label for="practicedYes">Yes</label>
-                            <input type="checkbox" value="yes" class="checkYes" name="alreadyPracticed"  disabled>
+                            <input type="checkbox" value="yes" class="alreadyPracticed" name="alreadyPracticed"  disabled>
                             <label for="practicedNo">No</label>
-                            <input type="checkbox" value="no" name="alreadyPracticed" checked disabled />
+                            <input type="checkbox" value="no" name="alreadyPracticed"  disabled class="alreadyPracticed">
                         </div>
                     </div>
                 </div>
@@ -212,12 +212,12 @@
 
                         <div class="container-select">
                             <label for="anyExerYes">Yes</label>
-                            <input type="checkbox" value="yes" class="checkYes" name="anyExercise" disabled checked>
+                            <input type="checkbox" value="yes" class="anyExercise" name="anyExercise" disabled >
                             <label for="anyExerNo">No</label>
-                            <input type="checkbox" value="no" name="anyExercise" disabled >
+                            <input type="checkbox" value="no" name="anyExercise" disabled class="anyExercise">
                         </div>
                     </div>
-                    <textarea name="anyExercise" id="" disabled value=""></textarea>
+                    <textarea name="anyExercise" disabled class="anyExercise"></textarea>
                 </div>
 
                 <div class="others-container has-check check-container">
@@ -227,12 +227,12 @@
 
                         <div class="container-select">
                             <label for="obsYes">Yes</label>
-                            <input type="checkbox" value="yes" class="checkYes" name="obs" checked disabled>
+                            <input type="checkbox" value="yes" class="observation" name="observation"  disabled>
                             <label for="obsNo">No</label>
-                            <input type="checkbox" value="no" name="obs" disabled >
+                            <input type="checkbox" value="no" name="observation" disabled class="observation">
                         </div>
                     </div>
-                    <textarea name="obs" value="hello" disabled></textarea>
+                    <textarea name="observation" disabled class="observation"></textarea>
                 </div>  
             </div>
 

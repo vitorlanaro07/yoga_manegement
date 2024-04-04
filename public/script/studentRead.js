@@ -1,10 +1,5 @@
-//getting the student
-function getId(element){
-    let idStudent = element.children[0].innerHTML;
-    window.location.href = '/student/' + idStudent;
-}
+//getting the student id
 let id = window.location.href.split('/')[4];
-
 
 //fetching data async and showing
 const namePlace = document.querySelector('.name');
@@ -18,33 +13,59 @@ const street = document.querySelector('.street');
 const state = document.querySelector('.state');
 const number = document.querySelector('.number');
 const spine = document.querySelectorAll('.spine');
+const surgery = document.querySelectorAll('.surgery');
+const pain = document.querySelectorAll('.pain');
+const hypertension = document.querySelectorAll('.hypertension');
+const heartDisease = document.querySelectorAll('.heartDisease');
+const hearingIssues = document.querySelectorAll('.hearingIssues');
+const labyrinthitis = document.querySelectorAll('.labyrinthitis');
+const alreadyPracticed = document.querySelectorAll('.alreadyPracticed');
+const anyExercise = document.querySelectorAll('.anyExercise');
+const observation = document.querySelectorAll('.observation');
 
-fetch("/student/json/"+id).then(
-    (response) => response.json()
-).then(data => {
-    namePlace.value = data.name;
-    birthdate.value = data.birthdate;
-    genre.value = data.genre,
-    status.value = data.status,
-    email.value = data.email,
-    phone.value = data.phone,
-    city.value = data.city,
-    street.value = data.street,
-    state.value = data.state,
-    number.value = data.number
-    // spine.value = data.spine
-    // console.log(data.spine);
-    // console.log(spine)
-    if(data.spine[0] == "yes"){
-        spine[0].checked = true;
-        spine[2].value = data.spine[1];
-        spine[2].hidden = false;
-
-    }else{
-        spine[1].checked = true
+function updatingCheckboxOnLoading(data, option){
+    // console.log(data,option);
+    if(data[0] == "yes"){
+        option[0].checked = true;
+        option[2].value = data[1];
+        option[2].hidden = false;
+    }else if (data == "yes"){
+        option[0].checked = true;
+    } else {
+        option[1].checked = true
     }
-})
+}
 
+try{
+    fetch("/student/json/"+id).then(
+        (response) => response.json()
+    ).then(data => {
+        // console.log(data);
+        namePlace.value = data.name;
+        birthdate.value = data.birthdate;
+        genre.value = data.genre,
+        status.value = data.status,
+        email.value = data.email,
+        phone.value = data.phone,
+        city.value = data.city,
+        street.value = data.street,
+        state.value = data.state,
+        number.value = data.number
+        updatingCheckboxOnLoading(data.spine, spine);
+        updatingCheckboxOnLoading(data.surgery, surgery);
+        updatingCheckboxOnLoading(data.pain, pain);
+        updatingCheckboxOnLoading(data.hypertension, hypertension);
+        updatingCheckboxOnLoading(data.heartDisease, heartDisease);
+        updatingCheckboxOnLoading(data.hearingIssues, hearingIssues);
+        updatingCheckboxOnLoading(data.labyrinthitis, labyrinthitis);
+        updatingCheckboxOnLoading(data.alreadyPracticed, alreadyPracticed);
+        updatingCheckboxOnLoading(data.anyExercise, anyExercise);
+        updatingCheckboxOnLoading(data.observation, observation);
+        
+    })
+} catch{
+
+}
 
 //canceling changes
 const btnCancel = document.querySelector('.button-cancel');
@@ -187,7 +208,7 @@ allCheck.forEach(check => {
 
         //closing text area on click
         listeningClicks(checkYes, checkNo, textArea);
-        console.log(check)
+        // console.log(check)
 
         //closing text area on load
         if(checkYes.checked == true){

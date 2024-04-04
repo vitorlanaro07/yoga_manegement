@@ -33,15 +33,15 @@ router.get('/student/json/:id', (req, res) => {
         state : student.state,
         number : student.number,
         spine : student.spine,
-        // surger : student.surgery,
-        // pain : student.pain,
-        // hypertension : student.hypertension,
-        // heartDisease : student.heartDisease,
-        // hearingIssues : student.hearingIssues,
-        // labyrinthitis : student.labyrinthitis,
-        // alreadyPracticed : student.alreadyPracticed,
-        // anyExercise : student.anyExercise,
-        // obs : student.obs
+        surgery : student.surgery,
+        pain : student.pain,
+        hypertension : student.hypertension,
+        heartDisease : student.heartDisease,
+        hearingIssues : student.hearingIssues,
+        labyrinthitis : student.labyrinthitis,
+        alreadyPracticed : student.alreadyPracticed,
+        anyExercise : student.anyExercise,
+        observation : student.observation
     })
 })
 
@@ -74,9 +74,8 @@ router.post("/student/:id", (req, res) => {
     student.labyrinthitis = req.body.labyrinthitis;
     student.alreadyPracticed = req.body.alreadyPracticed;
     student.anyExercise = req.body.anyExercise;
-    student.obs = req.body.obs;
+    student.observation = req.body.observation;
 
-    console.log(student);
     res.redirect('../students');
 })
 
