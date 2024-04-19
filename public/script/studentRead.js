@@ -161,8 +161,12 @@ openingWarning = (e) => {
         boxWarning.style.display = "none";
     });
 
-    btnConfirm.addEventListener('click', () => {
-        window.location.href = '/students'
+    btnConfirm.addEventListener('click', (e) => {
+        // e.preventDefault();
+        fetch('/remove/'+id, {method: "POST"})
+            .then(window.location.href = '/students')
+        // console.log(id);
+        
     })
 }
 
@@ -170,30 +174,6 @@ openingWarning = (e) => {
 btnDelete.addEventListener('click', openingWarning);
 
 
-
-function listeningClicks(checkYes, checkNo, hasTextArea){
-    checkYes.addEventListener('click', () => {
-        if(checkNo.checked == true && hasTextArea){
-            hasTextArea.hidden = false;
-            checkYes.checked = true;
-            checkNo.checked = false;
-        } else if (checkNo.checked == true){
-            checkYes.checked = true;
-            checkNo.checked = false;
-        }
-    })
-
-    checkNo.addEventListener('click', () => {
-        if(checkYes.checked == true && hasTextArea){
-            hasTextArea.hidden = true;
-            checkNo.checked = true;
-            checkYes.checked = false;
-        }else if (checkYes.checked == true){
-            checkYes.checked = false;
-            checkNo.checked = true;
-        }
-    })
-}
 
 
 //verifying all checksboxes, confering if it has text-area, if the student data
@@ -208,7 +188,7 @@ allCheck.forEach(check => {
 
         //closing text area on click
         listeningClicks(checkYes, checkNo, textArea);
-        // console.log(check)
+    
 
         //closing text area on load
         if(checkYes.checked == true){
@@ -220,3 +200,34 @@ allCheck.forEach(check => {
         listeningClicks(checkYes, checkNo, undefined);
     }
 });
+
+
+//verifying checkbox on clicks
+function listeningClicks(checkYes, checkNo, hasTextArea){
+    checkYes.addEventListener('click', () => {
+        if(checkNo.checked == true && hasTextArea){
+            hasTextArea.hidden = false;
+            checkYes.checked = true;
+            checkNo.checked = false;
+        } else if (checkNo.checked == true){
+            checkYes.checked = true;
+            checkNo.checked = false;
+        } else{
+            checkYes.checked = true;
+        }
+
+    })
+
+    checkNo.addEventListener('click', () => {
+        if(checkYes.checked == true && hasTextArea){
+            hasTextArea.hidden = true;
+            checkNo.checked = true;
+            checkYes.checked = false;
+        }else if (checkYes.checked == true){
+            checkYes.checked = false;
+            checkNo.checked = true;
+        }else{
+            checkNo.checked = true;
+        }
+    })
+}

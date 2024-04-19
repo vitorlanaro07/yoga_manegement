@@ -11,12 +11,22 @@ router.get("/", (req, res) => {
     });
 })
 
-router.get("/students", (req, res) => {
-    res.render('students', {
-        title: 'Students | Yoga Management',
-        additionalCss: '/css/student.css',
-        students: studentModel.students
-    });
+router.get("/students", async(req, res) =>  {
+    try{
+        stu = await studentModel.fetchAll();
+        console.log(stu[0][0].FirstName);
+        // res.send(stu[0])
+        res.render('students', {
+                title: 'Students | Yoga Management',
+                additionalCss: '/css/student.css',
+                students: stu[0]
+            });
+    } catch{
+
+    }
+    // res.send(console.log();
+    // studentModel;
+    // 
 })
 
 router.get('/student/json/:id', (req, res) => {
@@ -79,16 +89,23 @@ router.post("/student/:id", (req, res) => {
     res.redirect('../students');
 })
 
+router.post('/remove/:id', (req, res) => {
+    console.log("deleting", req.params.id);
+    studentModel.students.splice((req.params.id - 1),1);
+    
+})
+
 router.post("/students", (req, res) => {
-    studentModel.lenght++;
-    // console.log(req.body);
-    var newStudent = {
-        id: studentModel.lenght,
-        name: req.body.name,
-        genre: req.body.genre,
-        status: req.body.status
-    }
-    studentModel.students.push(newStudent);
+
+    // studentModel.lenght++;
+    // // console.log(req.body);
+    // var newStudent = {
+    //     id: studentModel.lenght,
+    //     name: req.body.name,
+    //     genre: req.body.genre,
+    //     status: req.body.status
+    // }
+    // studentModel.students.push(newStudent);
     res.redirect('students');
     // console.log('Student Posted!');
 })

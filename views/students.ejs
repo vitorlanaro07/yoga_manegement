@@ -25,10 +25,10 @@
                     <% students.forEach((student) =>{ %>
                         
                         <tr onclick="getId(this)">
-                            <td><%= student.id %></td>
-                            <td><%= student.name %></td>
-                            <td><%= student.genre %></td>
-                            
+                            <td><%= student.Student_id %></td>
+                            <td><%= student.FirstName %></td>
+                            <td><%= student.LastName %></td>
+                            <td><%= student.Age %></td>
                             <!-- Checking student status -->
                             <% if (student.status === 'active') {%>
                                 <td><span class="student-active"><%= student.status %></span></td>
