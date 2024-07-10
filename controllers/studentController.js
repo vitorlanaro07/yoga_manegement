@@ -1,5 +1,12 @@
-const Student = require('../models/studentModel');
+const studentModel = require('../models/studentModel');
 
-exports.getAllStudents = (req, res, next) => {
-    res.send(Student.fetchAll());
+module.exports = {
+          fetchAllStudents : (req, res) => {   
+               return studentModel.fetchAll(); 
+          },
+          fetchByID : (id, req, res) => {    
+               return  studentModel.fetchById(id);
+          }
 }
+
+

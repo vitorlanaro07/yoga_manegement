@@ -25,17 +25,17 @@
                     <% students.forEach((student) =>{ %>
                         
                         <tr onclick="getId(this)">
-                            <td><%= student.Student_id %></td>
+                            <td><%= student.StudentID %></td>
                             <td><%= student.FirstName %></td>
                             <td><%= student.LastName %></td>
-                            <td><%= student.Age %></td>
+                            
                             <!-- Checking student status -->
-                            <% if (student.status === 'active') {%>
-                                <td><span class="student-active"><%= student.status %></span></td>
-                            <% } else if (student.status === 'inactive') {%>
-                                <td><span class="student-inactive"><%= student.status %></span></td>
-                            <% } else if (student.status === 'interested') {%>
-                                <td><span class="student-interested"><%= student.status %></span></td>
+                            <% if (student.StudentStatus === 1) {%>
+                                <td><span class="student-active">Active</span></td>
+                            <% } else if (student.StudentStatus === 0) {%>
+                                <td><span class="student-inactive">Inactive</span></td>
+                            <% } else if (student.StudentStatus === 2) {%>
+                                <td><span class="student-interested">Interested</span></td>
                             <% }; %>
                         </tr>
                         <% }); %>

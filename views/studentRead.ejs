@@ -29,37 +29,55 @@
             <div class="personal-information">
                 <span class="img-profile"></span>
                 <div class="personal-container">
-                    <input class="input-edit name" type="text" name="name">
+
+                    <input class="input-edit name" type="text" name="name" value="<%= `${name} ${lastName}`%>">
                     <div class="labels">
                         <label for="birthdate">Birthday:</label>
-                        <input class="input-edit birthdate" type="date" name="birthdate"  min="1997-01-01" max="2030-12-31">
+                        <input class="input-edit birthdate" type="date" name="birthdate"  value="<%= birthday %>">
                     </div>
                     <div class="labels">
                         <label for="email">Email:</label>
-                        <input class="input-edit email" type="text" name="email"  placeholder="">
+                        <input class="input-edit email" type="text" name="email"  value="<%= email %>">
                     </div>
                     <div class="labels">
                         <label for="phone">Phone:</label>
-                        <input class="input-edit phone" type="text" name="phone"  placeholder="">
+                        <input class="input-edit phone" type="text" name="phone"  value="<%= telephone %>">
                     </div>
                 </div>
                 <div class="personal-container">
                     <span class="age">
-                        <h4 class="age">23 Years</h4>
+                        <h4 class="age"> <%= age %> years old</h4>
                     </span>
                     <div class="labels genre">
                         <label for="genre">Genre</label>
-                        <select class="genre-input" name="genre" disabled>
-                            <option value="male">Male</option> 
-                            <option value="female" >Female</option>  
+                        <select class="genre-input" name="genre" disabled>  
+                            <% if (genre == "Male") { %>
+                                <option value="male" selected>Male</option> 
+                                <option value="female" >Female</option>  
+                            <% } else { %>
+                                <option value="male">Male</option> 
+                                <option value="female" selected>Female</option>  
+                            <% } %>
+                            
                         </select>
                     </div>
                     <div class="labels status">
                         <label for="status">Status</label>
                         <select name="status" class="status-input" disabled>
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                            <option value="interested">Interested</option>
+                            <% if (studentStatus == 0) { %>
+                                <option value="active">Active</option>
+                                <option value="inactive" selected>Inactive</option>
+                                <option value="interested">Interested</option>
+                            <% } else if (studentStatus == 1) { %>
+                                <option value="active" selected>Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="interested">Interested</option>
+                            <% } else if (studentStatus == 2) { %>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="interested" selected>Interested</option>
+                            <% } %>
+                            
                         </select>
                     </div>
                 </div>
@@ -70,19 +88,19 @@
                 <div class="address-container">
                     <div class="labels">
                         <label for="city">City:</label>
-                        <input class="input-edit city" type="text" name="city" >
+                        <input class="input-edit city" type="text" name="city" value="<%= city %>">
                     </div>
                     <div class="labels">
                         <label for="street">Street:</label>
-                        <input class="input-edit street" type="text" name="street"  placeholder="">
+                        <input class="input-edit street" type="text" name="street"  value="<%= street %>">
                     </div>
                     <div class="labels">
                         <label for="state">State:</label>
-                        <input class="input-edit state" type="text" name="state"  placeholder="">
+                        <input class="input-edit state" type="text" name="state"  value="<%= state %>">
                     </div>
                     <div class="labels">
                         <label for="number">Number:</label>
-                        <input class="input-edit number" type="text" name="number"  placeholder="">
+                        <input class="input-edit number" type="text" name="number"  value="<%= number %>">
                     </div>
                 </div>         
             </div>
@@ -94,13 +112,24 @@
                         <!-- <h4 class="issues-name"></h4> -->
                         <label for="spine">Spine issues</label>
                         <div class="container-select">
-                            <label for="spineYes">Yes</label>
-                            <input type="checkbox" value="yes" name="spine" class="spine" disabled >
-                            <label for="spineNo">No</label>
-                            <input type="checkbox" value="no" name="spine" class="spine" disabled >
+                            <% if (spineIssues == 0) { %>
+                                <label for="spineYes">Yes</label>
+                                <input type="checkbox" value="yes" name="spine" class="spine" disabled >
+                                <label for="spineNo">No</label>
+                                <input type="checkbox" value="no" name="spine" class="spine" disabled checked>
+                            <% } else { %>
+                                <label for="spineYes">Yes</label>
+                                <input type="checkbox" value="yes" name="spine" class="spine" disabled checked>
+                                <label for="spineNo">No</label>
+                                <input type="checkbox" value="no" name="spine" class="spine" disabled >
+                            <% } %>
                         </div>
                     </div>
-                    <textarea name="spine" class="spine" disabled></textarea>
+                    <% if (spineIssues == 0) { %>
+                        <textarea name="spineDescription" class="spine" disabled></textarea>
+                    <% } else { %>
+                        <textarea name="spineDescription" class="spine" disabled><%= spineDescription %></textarea>
+                    <% } %>
                 </div>
 
                 <div class="issues-container has-check check-container">
@@ -109,13 +138,24 @@
                         <label for="surgery">Surgery</label>
 
                         <div class="container-select">
-                            <label for="surgeryYes">Yes</label>
-                            <input type="checkbox" value="yes" name="surgery" class="surgery" disabled>
-                            <label for="surgeryNo">No</label>
-                            <input type="checkbox" value="no" name="surgery" disabled class="surgery">
+                            <% if (surgery == 0) { %>
+                                <label for="surgeryYes">Yes</label>
+                                <input type="checkbox" value="yes" name="surgery" class="surgery" disabled>
+                                <label for="surgeryNo">No</label>
+                                <input type="checkbox" value="no" name="surgery" disabled class="surgery" checked>
+                            <% } else { %>
+                                <label for="surgeryYes">Yes</label>
+                                <input type="checkbox" value="yes" name="surgery" class="surgery" disabled checked>
+                                <label for="surgeryNo">No</label>
+                                <input type="checkbox" value="no" name="surgery" disabled class="surgery">
+                            <% } %>              
                         </div>
                     </div>
-                    <textarea name="surgery" class="surgery" disabled></textarea>
+                    <% if (surgery == 0) { %>
+                        <textarea name="surgeryDescription" class="surgery" disabled></textarea>
+                    <% } else { %>
+                        <textarea name="surgeryDescription" class="surgery" disabled><%= surgeryDescription %></textarea>
+                    <% } %>
                 </div>
 
                 <div class="issues-container has-check check-container">
@@ -124,24 +164,45 @@
                         <label for="pain">Pain</label>
 
                         <div class="container-select">
-                            <label for="painYes">Yes</label>
-                            <input type="checkbox" value="yes" class="pain" name="pain" disabled>
-                            <label for="painNo">No</label>
-                            <input type="checkbox" value="no" name="pain" disabled class="pain">
+                            <% if (pain == 0) { %>
+                                <label for="painYes">Yes</label>
+                                <input type="checkbox" value="yes" class="pain" name="pain" disabled>
+                                <label for="painNo">No</label>
+                                <input type="checkbox" value="no" name="pain" disabled class="pain" checked>
+                            <% } else { %>
+                                <label for="painYes">Yes</label>
+                                <input type="checkbox" value="yes" class="pain" name="pain" disabled checked>
+                                <label for="painNo">No</label>
+                                <input type="checkbox" value="no" name="pain" disabled class="pain">
+                            <% } %>
+                            
                         </div>
                     </div>
-                    <textarea name="pain" class="pain" disabled></textarea>
+                    <% if (pain == 0) { %>
+                        <textarea name="painDescription" class="pain" disabled></textarea>
+                    <% } else { %>
+                        <textarea name="painDescription" class="pain" disabled><%= painDescription %></textarea>
+                    <% } %>
                 </div>
                 
                 <div class="issues-container check-container">
                     <div class="issues-row">
                         <label for="hypertension">Hypertension</label>
                         <div class="container-select">
-                            <label for="hyperYes">Yes</label>
-                            <input type="checkbox" value="yes" 
-                            name="hypertension" class="hypertension" disabled>
-                            <label for="hyperNo">No</label>
-                            <input type="checkbox" value="no" name="hypertension" class="hypertension" disabled>
+                            <% if ( hypertension == 0) { %>
+                                <label for="hyperYes">Yes</label>
+                                <input type="checkbox" value="yes" 
+                                name="hypertension" class="hypertension" disabled>
+                                <label for="hyperNo">No</label>
+                                <input type="checkbox" value="no" name="hypertension" class="hypertension" disabled checked>
+                            <% } else { %>
+                                <label for="hyperYes">Yes</label>
+                                <input type="checkbox" value="yes" 
+                                name="hypertension" class="hypertension" disabled checked>
+                                <label for="hyperNo">No</label>
+                                <input type="checkbox" value="no" name="hypertension" class="hypertension" disabled>
+                            <% } %>
+                            
                         </div>
                     </div>
                 </div>
@@ -152,10 +213,18 @@
                         <label for="heartDisease">Heart Disease</label>
 
                         <div class="container-select">
-                            <label for="heartYes">Yes</label>
-                            <input type="checkbox" value="yes" class="heartDisease" name="heartDisease" disabled >
-                            <label for="heartNo">No</label>
-                            <input type="checkbox" value="no" name="heartDisease" disabled class="heartDisease">
+                            <% if ( heartDisease == 0) { %>
+                                <label for="heartYes">Yes</label>
+                                <input type="checkbox" value="yes" class="heartDisease" name="heartDisease" disabled >
+                                <label for="heartNo">No</label>
+                                <input type="checkbox" value="no" name="heartDisease" disabled class="heartDisease" checked>
+                            <% } else { %>
+                                <label for="heartYes">Yes</label>
+                                <input type="checkbox" value="yes" class="heartDisease" name="heartDisease" disabled checked>
+                                <label for="heartNo">No</label>
+                                <input type="checkbox" value="no" name="heartDisease" disabled class="heartDisease">
+                            <% } %>
+                            
                         </div>
                     </div>
                 </div>
@@ -166,10 +235,18 @@
                         <label for="hearingIssues">Hearing Issues</label>
 
                         <div class="container-select">
-                            <label for="hearingYes">Yes</label>
-                            <input type="checkbox" value="yes" class="hearingIssues" name="hearingIssues" disabled>
-                            <label for="hearingNo">No</label>
-                            <input type="checkbox" value="no" name="hearingIssues" disabled class="hearingIssues">
+                            <% if ( hearingIssues == 0) { %>
+                                <label for="hearingYes">Yes</label>
+                                <input type="checkbox" value="yes" class="hearingIssues" name="hearingIssues" disabled>
+                                <label for="hearingNo">No</label>
+                                <input type="checkbox" value="no" name="hearingIssues" disabled class="hearingIssues" checked>
+                            <% } else { %>
+                                <label for="hearingYes">Yes</label>
+                                <input type="checkbox" value="yes" class="hearingIssues" name="hearingIssues" disabled checked>
+                                <label for="hearingNo">No</label>
+                                <input type="checkbox" value="no" name="hearingIssues" disabled class="hearingIssues">
+                            <% } %>
+                            
                         </div>
                     </div>
                 </div>
@@ -180,10 +257,18 @@
                         <label for="labyrinthitis">Labyrinthitis</label>
 
                         <div class="container-select">
-                            <label for="labyYes">Yes</label>
-                            <input type="checkbox" value="yes" class="labyrinthitis" name="labyrinthitis" disabled>
-                            <label for="labyNo">No</label>
-                            <input type="checkbox" value="no" name="labyrinthitis" disabled class="labyrinthitis">
+                            <% if (labyrinthitis == 0) { %>
+                                <label for="labyYes">Yes</label>
+                                <input type="checkbox" value="yes" class="labyrinthitis" name="labyrinthitis" disabled>
+                                <label for="labyNo">No</label>
+                                <input type="checkbox" value="no" name="labyrinthitis" disabled class="labyrinthitis" checked>
+                            <% } else { %>
+                                <label for="labyYes">Yes</label>
+                                <input type="checkbox" value="yes" class="labyrinthitis" name="labyrinthitis" disabled checked>
+                                <label for="labyNo">No</label>
+                                <input type="checkbox" value="no" name="labyrinthitis" disabled class="labyrinthitis">
+                            <% } %>
+                            
                         </div>
                     </div>
                 </div>
@@ -197,10 +282,18 @@
                         <label for="alreadyPracticed">Already ever practiced Yoga</label>
 
                         <div class="container-select">
-                            <label for="practicedYes">Yes</label>
-                            <input type="checkbox" value="yes" class="alreadyPracticed" name="alreadyPracticed"  disabled>
-                            <label for="practicedNo">No</label>
-                            <input type="checkbox" value="no" name="alreadyPracticed"  disabled class="alreadyPracticed">
+                            <% if (alreadyPracticed == 0) { %>
+                                <label for="practicedYes">Yes</label>
+                                <input type="checkbox" value="yes" class="alreadyPracticed" name="alreadyPracticed"  disabled>
+                                <label for="practicedNo">No</label>
+                                <input type="checkbox" value="no" name="alreadyPracticed"  disabled class="alreadyPracticed" checked>
+                            <% } else { %>
+                                <label for="practicedYes">Yes</label>
+                                <input type="checkbox" value="yes" class="alreadyPracticed" name="alreadyPracticed"  disabled checked>
+                                <label for="practicedNo">No</label>
+                                <input type="checkbox" value="no" name="alreadyPracticed"  disabled class="alreadyPracticed">
+                            <% } %>
+                            
                         </div>
                     </div>
                 </div>
@@ -211,13 +304,26 @@
                         <label for="anyExercise">Practice any exercise</label>
 
                         <div class="container-select">
-                            <label for="anyExerYes">Yes</label>
-                            <input type="checkbox" value="yes" class="anyExercise" name="anyExercise" disabled >
-                            <label for="anyExerNo">No</label>
-                            <input type="checkbox" value="no" name="anyExercise" disabled class="anyExercise">
+                            <% if (practiceAnyExercise == 0) { %>
+                                <label for="anyExerYes">Yes</label>
+                                <input type="checkbox" value="yes" class="anyExercise" name="practiceAnyExercise" disabled >
+                                <label for="anyExerNo">No</label>
+                                <input type="checkbox" value="no" name="practiceAnyExercise" disabled class="anyExercise" checked>
+                            <% } else { %>
+                                <label for="anyExerYes">Yes</label>
+                                <input type="checkbox" value="yes" class="anyExercise" name="practiceAnyExercise" disabled checked>
+                                <label for="anyExerNo">No</label>
+                                <input type="checkbox" value="no" name="practiceAnyExercise" disabled class="anyExercise">
+                            <% } %>
+                            
                         </div>
                     </div>
-                    <textarea name="anyExercise" disabled class="anyExercise"></textarea>
+                    
+                    <% if (practiceAnyExercise == 0) { %>
+                        <textarea name="exerciseDescription" disabled class="anyExercise"></textarea>
+                    <% } else { %>
+                        <textarea name="exerciseDescription" disabled class="anyExercise"><%= exerciseDescription %></textarea>
+                    <% } %>
                 </div>
 
                 <div class="others-container has-check check-container">
@@ -226,13 +332,26 @@
                         <label for="obs">Observation</label>
 
                         <div class="container-select">
-                            <label for="obsYes">Yes</label>
-                            <input type="checkbox" value="yes" class="observation" name="observation"  disabled>
-                            <label for="obsNo">No</label>
-                            <input type="checkbox" value="no" name="observation" disabled class="observation">
+                            <% if (observation == 0) { %>
+                                <label for="obsYes">Yes</label>
+                                <input type="checkbox" value="yes" class="observation" name="observation"  disabled>
+                                <label for="obsNo">No</label>
+                                <input type="checkbox" value="no" name="observation" disabled class="observation" checked>
+                            <% } else { %>
+                                <label for="obsYes">Yes</label>
+                                <input type="checkbox" value="yes" class="observation" name="observation"  disabled checked>
+                                <label for="obsNo">No</label>
+                                <input type="checkbox" value="no" name="observation" disabled class="observation">
+                            <% } %>
+                            
                         </div>
                     </div>
-                    <textarea name="observation" disabled class="observation"></textarea>
+                    
+                    <% if (observation == 0) { %>
+                        <textarea name="observationDescription" disabled class="observation"></textarea>
+                    <% } else { %>
+                        <textarea name="observationDescription" disabled class="observation"><%= observationDescription %></textarea>
+                    <% } %>
                 </div>  
             </div>
 
