@@ -26,8 +26,8 @@
                         
                         <tr onclick="getId(this)">
                             <td><%= student.StudentID %></td>
-                            <td><%= student.FirstName %></td>
-                            <td><%= student.LastName %></td>
+                            <td><%= student.Name %></td>
+                            <td><%= student.Genre %></td>
                             
                             <!-- Checking student status -->
                             <% if (student.StudentStatus === 1) {%>
@@ -44,41 +44,205 @@
         </div>
         <div class="forms-new-student">
             <form method="POST" action="/students">
-                <div class="forms-row">
-                    <div class="forms-cel">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name">
+
+                <h3 class="forms-title">Personal Information</h3>
+
+                <div class="personal-information">
+                    <div class="forms-row">
+                        <div class="forms-cel">
+                            <label for="name">Full name</label>
+                            <input type="text" name="name" id="name">
+                        </div>
+                        <div class="forms-cel">
+                            <label for="birthdate">Birthdate</label>
+                            <input type="date" name="birthdate" id="birthdate">
+                        </div>
                     </div>
-                    <div class="forms-cel">
-                        <label for="lastname">Last name</label>
-                        <input type="text" name="lastname" id="lastname">
+    
+                    <div class="forms-row">
+                        <div class="forms-cel">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email">
+                        </div>
+                        <div class="forms-cel">
+                            <label for="telephone">Telephone</label>
+                            <input type="tel" name="telephone" id="telephone">
+                        </div>
+                    </div>
+    
+                    <div class="forms-row">
+                        <div class="forms-cel">
+                            <label for="genre">Genre</label>
+                            <select name="genre" id="genre">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="forms-cel">
+                            <label for="status" class="form-align-center">Status</label>
+                            <select name="studentStatus" id="" class="form-align-center">
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                                <option value="2">Interested</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="forms-title">Address</h2>
+
+                <div class="address">
+                    <div class="forms-row">
+                        <div class="forms-cel">
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city">
+                        </div>
+                        <div class="forms-cel">
+                            <label for="state">State</label>
+                            <input type="text" name="state" id="state">
+                        </div>
+                    </div>
+                    <div class="forms-row">
+                        <div class="forms-cel">
+                            <label for="street">Street</label>
+                            <input type="text" name="street" id="street">
+                        </div>
+                        <div class="forms-cel">
+                            <label for="number">Number</label>
+                            <input type="text" name="number" id="number">
+                        </div>
                     </div>
                 </div>
 
-                <div class="forms-row">
-                    <div class="forms-cel">
-                        <label for="genre">Genre</label>
-                        <select name="genre" id="genre">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
+                <h3 class="forms-title">Issues</h2>
+
+                <div class="issues">
+                    <div class="issues-container has-check check-container">
+                        <div class="issues-row">
+                            <label for="spine">Spine issues</label>
+                            <div class="container-select">
+                                <label for="spineYes">Yes</label>
+                                <input type="checkbox" value="yes" name="spineIssues" class="spine"  >
+                                <label for="spineNo">No</label>
+                                <input type="checkbox" value="no" name="spineIssues" class="spine"  >
+                            </div>
+                        </div>
+                        <textarea name="spineDescription" class="spine" ></textarea>
                     </div>
-                    <div class="forms-cel">
-                        <label for="telephone">Telephone</label>
-                        <input type="tel" name="telephone" id="telephone">
+                    <div class="issues-container has-check check-container">
+                        <div class="issues-row">
+                            <label for="surgery">Surgery</label>
+                            <div class="container-select">
+                                <label for="surgeryYes">Yes</label>
+                                <input type="checkbox" value="yes" name="surgery" class="surgery" >
+                                <label for="surgeryNo">No</label>
+                                <input type="checkbox" value="no" name="surgery"  class="surgery" >
+                            </div>
+                        </div>
+                        <textarea name="surgeryDescription" class="surgery" ></textarea>
+                    </div>
+                    <div class="issues-container has-check check-container">
+                        <div class="issues-row">
+                            <label for="pain">Pain</label>
+                            <div class="container-select">
+                                <label for="painYes">Yes</label>
+                                <input type="checkbox" value="yes" class="pain" name="pain" >
+                                <label for="painNo">No</label>
+                                <input type="checkbox" value="no" name="pain"  class="pain" >
+                            </div>
+                        </div>
+                        <textarea name="painDescription" class="pain" ></textarea>
+                    </div>
+                    <div class="issues-container check-container">
+                        <div class="issues-row">
+                            <label for="hypertension">Hypertension</label>
+                            <div class="container-select">
+                                <label for="hyperYes">Yes</label>
+                                <input type="checkbox" value="yes" 
+                                name="hypertension" class="hypertension" >
+                                <label for="hyperNo">No</label>
+                                <input type="checkbox" value="no" name="hypertension" class="hypertension"  >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="issues-container check-container">
+                        <div class="issues-row">
+                            <label for="heartDisease">Heart Disease</label>
+                            <div class="container-select">
+                                <label for="heartYes">Yes</label>
+                                <input type="checkbox" value="yes" class="heartDisease" name="heartDisease"  >
+                                <label for="heartNo">No</label>
+                                <input type="checkbox" value="no" name="heartDisease"  class="heartDisease" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="issues-container check-container">
+                        <div class="issues-row">
+                            <label for="hearingIssues">Hearing Issues</label>
+                            <div class="container-select">
+                                <label for="hearingYes">Yes</label>
+                                <input type="checkbox" value="yes" class="hearingIssues" name="hearingIssues" >
+                                <label for="hearingNo">No</label>
+                                <input type="checkbox" value="no" name="hearingIssues"  class="hearingIssues" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="issues-container check-container">
+                        <div class="issues-row">
+                            <label for="labyrinthitis">Labyrinthitis</label>
+                            <div class="container-select">
+                                <label for="labyYes">Yes</label>
+                                <input type="checkbox" value="yes" class="labyrinthitis" name="labyrinthitis"  >
+                                <label for="labyNo">No</label>
+                                <input type="checkbox" value="no" name="labyrinthitis"  class="labyrinthitis">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <label for="status" class="form-align-center">Status</label>
-                <select name="status" id="" class="form-align-center">
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
-                    <option value="interested">Interested</option>
-                </select>
+                <h3 class="forms-title">Others</h2>
+               
+                    <div class="others">
+                        <div class="others-container check-container">
+                            <div class="others-row">
+                                <label for="alreadyPracticed">Already ever practiced Yoga</label>
+                                <div class="container-select">
+                                    <label for="practicedYes">Yes</label>
+                                    <input type="checkbox" value="yes" class="alreadyPracticed" name="alreadyPracticed"  >
+                                    <label for="practicedNo">No</label>
+                                    <input type="checkbox" value="no" name="alreadyPracticed"   class="alreadyPracticed" >
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="others-container has-check check-container">
+                            <div class="others-row">
+                                <label for="anyExercise">Practice any exercise</label>
+                                <div class="container-select">
+                                    <label for="anyExerYes">Yes</label>
+                                    <input type="checkbox" value="yes" class="anyExercise" name="practiceAnyExercise"  >
+                                    <label for="anyExerNo">No</label>
+                                    <input type="checkbox" value="no" name="practiceAnyExercise"  class="anyExercise" >
+                                </div>
+                            </div>
+                            <textarea name="exerciseDescription"  class="anyExercise"></textarea>
+                        </div>
+                        <div class="others-container has-check check-container">
+                            <div class="others-row">
+                                <label for="obs">Observation</label>
+                                <div class="container-select">
+                                    <label for="obsYes">Yes</label>
+                                    <input type="checkbox" value="yes" class="observation" name="observation"  >
+                                    <label for="obsNo">No</label>
+                                    <input type="checkbox" value="no" name="observation"  class="observation" >
+                                </div>
+                            </div>
+                            <textarea name="observationDescription"  class="observation"></textarea>
+                        </div>  
+                    </div>
 
-                <label for="issues" class="form-align-start">Issues</label>
-                <textarea name="issues" id="" cols="30" rows="10"></textarea>
                 <input  type="submit" class="button-form" value="Submit">
+                
             </form>
         </div>
     </div>
@@ -86,4 +250,6 @@
   
 <script src="/script/student.js"></script>
 <script src="/script/readStudentPage.js"></script>
+<script src="/script/studentRead.js"></script>
+
 <%- include ('./layout/footer.ejs')-%>

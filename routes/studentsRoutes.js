@@ -3,6 +3,7 @@ const router = express.Router();
 const studentController = require('../controllers/studentController');
 const anamneseModel = require('../models/anamneseModel');
 const anamneseController = require('../controllers/anamneseController');
+const dateUtil = require('../utils/date')
 
 
 router.get("/", (req, res) => {
@@ -14,7 +15,6 @@ router.get("/", (req, res) => {
 
 router.get("/students", async (req, res) =>  {
     try{
-
         result =  await studentController.fetchAllStudents();
         // console.log(result);
         res.render('students', {
@@ -25,79 +25,28 @@ router.get("/students", async (req, res) =>  {
     } catch {
         
     }
- 
-
-    // res.send(stu[0])
-    
 
 });
 
-// router.get('/student/json/:id', (req, res) => {
-//     let student = studentModel.students[req.params.id];
-//     res.json({
-//         name: student.name,
-//         birthdate: student.birthdate,
-//         genre : student.genre,
-//         status : student.status,
-//         email: student.email,
-//         phone : student.phone,
-//         city : student.city,
-//         street : student.street,
-//         state : student.state,
-//         number : student.number,
-//         spine : student.spine,
-//         surgery : student.surgery,
-//         pain : student.pain,
-//         hypertension : student.hypertension,
-//         heartDisease : student.heartDisease,
-//         hearingIssues : student.hearingIssues,
-//         labyrinthitis : student.labyrinthitis,
-//         alreadyPracticed : student.alreadyPracticed,
-//         anyExercise : student.anyExercise,
-//         observation : student.observation
-//     })
-// })
-
-function getDataFormated(date){
-    birthdateFromStudent = new Date(date).toLocaleDateString().split("/");
-        
-    if (birthdateFromStudent[0].length == 1){
-        birthdateFromStudent[0] = "0" + birthdateFromStudent[0];
-    }
-
-    if (birthdateFromStudent[1].length == 1){
-        birthdateFromStudent[1] = "0" + birthdateFromStudent[1];
-    }
-
-    dataFormated = birthdateFromStudent[2] + "-" + birthdateFromStudent[0] + "-" + birthdateFromStudent[1];
-    
-    return dataFormated;
-}
-
 router.get('/student/:id', async (req, res) => {
- 
     try{
-        // console.log("Testing fetch, id: ", req.params.id);
         studentResult = await studentController.fetchByID(req.params.id);        
-        anamneseResult = await anamneseController.getAnamneseByID(req.params.id);
-        
-
+        anamneseResult = await anamneseController.fetchAnamneseByID(req.params.id);
         res.render('studentRead', {
                 title: `Yoga Management`,
                 additionalCss: '/css/studentRead.css',
                 id: studentResult[0][0].StudentID,
-                name : studentResult[0][0].FirstName,
-                lastName : studentResult[0][0].LastName,
-                age : studentResult[0][0].Age,
-                birthday : getDataFormated(studentResult[0][0].Birthday),
-                genre : studentResult[0][0].Genre,
+                name : studentResult[0][0].Name,
+                age : dateUtil.getAge(studentResult[0][0].Birthdate),
+                birthdate : dateUtil.getDataFormated(studentResult[0][0].Birthdate),
                 email : studentResult [0][0].Email,
+                genre : studentResult[0][0].Genre,
+                studentStatus : studentResult[0][0].StudentStatus,
                 telephone : studentResult[0][0].Telephone,
                 city : studentResult[0][0].City,
                 street : studentResult[0][0].Street,
                 state : studentResult[0][0].State,
                 number : studentResult[0][0].Number,
-                studentStatus : studentResult[0][0].StudentStatus,
                 spineIssues : anamneseResult[0][0].SpineIssues,
                 spineDescription : anamneseResult[0][0].SpineDescription,
                 surgery : anamneseResult[0][0].Surgery,
@@ -115,57 +64,89 @@ router.get('/student/:id', async (req, res) => {
                 observationDescription : anamneseResult[0][0].ObservationDescription
             });
     } catch{
-
     }
 })
 
 router.post("/student/:id", (req, res) => {
-    console.log(req.body);
+    studentUpdated = {
+        id : req.params.id,
+        name : req.body.name,
+        birthdate : req.body.birthdate,
+        email : req.body.email,
+        telephone : req.body.phone,
+        genre : req.body.genre,
+        status : req.body.status,
+        city : req.body.city,
+        street : req.body.street,
+        state : req.body.state,
+        number : req.body.number
+    }
+    anamneseUpdated = {
+        id : req.params.id,
+        spine: req.body.spine,
+        spineDescription : req.body.spineDescription,
+        surgery : req.body.surgery,
+        surgeryDescription : req.body.surgeryDescription,
+        pain : req.body.pain,
+        painDescription : req.body.painDescription,
+        hypertension : req.body.hypertension,
+        heartDisease : req.body.heartDisease,
+        hearingIssues : req.body.hearingIssues,
+        labyrinthitis : req.body.labyrinthitis,
+        alreadyPracticed : req.body.alreadyPracticed,
+        practiceAnyExercise : req.body.practiceAnyExercise,
+        exerciseDescription : req.body.exerciseDescription,
+        observation : req.body.observation,
+        observationDescription : req.body.observationDescription
+    }
 
-    // student.name = req.body.name;
-    // student.birthdate = req.body.birthdate;
-    // student.email = req.body.email;
-    // student.phone = req.body.phone;
-    // student.genre = req.body.genre;
-    // student.status = req.body.status;
-    // student.city = req.body.city;
-    // student.street = req.body.street;
-    // student.state = req.body.state;
-    // student.spine = req.body.spine;
-    // student.surgery = req.body.surgery;
-    // student.pain = req.body.pain;
-    // student.hypertension = req.body.hypertension;
-    // student.heartDisease = req.body.heartDisease;
-    // student.hearingIssues = req.body.hearingIssues;
-    // student.labyrinthitis = req.body.labyrinthitis;
-    // student.alreadyPracticed = req.body.alreadyPracticed;
-    // student.anyExercise = req.body.anyExercise;
-    // student.observation = req.body.observation;
-
-
+    studentController.update(studentUpdated);
+    anamneseController.update(anamneseUpdated);
 
     res.redirect('../students');
 })
 
 router.post('/remove/:id', (req, res) => {
-    console.log("deleting", req.params.id);
-    studentModel.students.splice((req.params.id - 1),1);
-    
+    studentID = req.params.id;
+    studentController.delete(studentID);
+    anamneseController.delete(studentID);
 })
 
 router.post("/students", (req, res) => {
+    newStudent = {
+        name : req.body.name,
+        age : dateUtil.getAge(req.body.birthdate),
+        birthdate : dateUtil.getDataFormated(req.body.birthdate),
+        email : req.body.email,
+        telephone : req.body.phone,
+        genre : req.body.genre,
+        studentStatus : req.body.studentStatus,
+        city : req.body.city,
+        street : req.body.street,
+        state : req.body.state,
+        number : req.body.number
+    }
+    newAnamnese = {
+        spineIssues: req.body.spineIssues,
+        spineDescription : req.body.spineDescription,
+        surgery : req.body.surgery,
+        surgeryDescription : req.body.surgeryDescription,
+        pain : req.body.pain,
+        painDescription : req.body.painDescription,
+        hypertension : req.body.hypertension,
+        heartDisease : req.body.heartDisease,
+        hearingIssues : req.body.hearingIssues,
+        labyrinthitis : req.body.labyrinthitis,
+        alreadyPracticed : req.body.alreadyPracticed,
+        practiceAnyExercise : req.body.practiceAnyExercise,
+        exerciseDescription : req.body.exerciseDescription,
+        observation : req.body.observation,
+        observationDescription : req.body.observationDescription
+    }
 
-    // studentModel.lenght++;
-    // // console.log(req.body);
-    // var newStudent = {
-    //     id: studentModel.lenght,
-    //     name: req.body.name,
-    //     genre: req.body.genre,
-    //     status: req.body.status
-    // }
-    // studentModel.students.push(newStudent);
+    studentController.create(newStudent);
+    anamneseController.create(newAnamnese);
     res.redirect('students');
-    // console.log('Student Posted!');
 })
 
 router.get('/notifications',(req, res) => {
