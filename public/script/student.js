@@ -1,3 +1,7 @@
+
+
+
+
 const btnNewStudent = document.querySelector('.new-student');
 const table = document.querySelector('.table');
 const forms = document.querySelector('.forms-new-student');

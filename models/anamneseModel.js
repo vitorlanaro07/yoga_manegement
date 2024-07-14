@@ -12,8 +12,7 @@ module.exports = class Anamnese{
   }
 
   static create(anamnese){
-    console.log(anamnese);
-    return pool.execute(` insert into Anamnese (SpineIssues, SpineDescription, Surgery, SurgeryDescription, Pain, PainDescription, Hypertension, HeartDisease, HearingIssues, Labyrinthitis, AlreadyPracticed, PracticeAnyExercise, ExerciseDescription, Observation, ObservationDescription) values ("${anamnese.spineIssues}","${anamnese.spineDescription}","${anamnese.surgery}","${anamnese.surgeryDescription}","${anamnese.pain}","${anamnese.painDescription}","${anamnese.hypertension}","${anamnese.heartDisease}","${anamnese.hearingIssues}","${anamnese.labyrinthitis}","${anamnese.alreadyPracticed}","${anamnese.practiceAnyExercise}","${anamnese.exerciseDescription}","${anamnese.observation}","${anamnese.observationDescription}");`);
+    return pool.execute(` insert into Anamnese (SpineIssues, SpineDescription, Surgery, SurgeryDescription, Pain, PainDescription, Hypertension, HeartDisease, HearingIssues, Labyrinthitis, AlreadyPracticed, PracticeAnyExercise, ExerciseDescription, Observation, ObservationDescription, CreationTime) values ("${anamnese.spineIssues}","${anamnese.spineDescription}","${anamnese.surgery}","${anamnese.surgeryDescription}","${anamnese.pain}","${anamnese.painDescription}","${anamnese.hypertension}","${anamnese.heartDisease}","${anamnese.hearingIssues}","${anamnese.labyrinthitis}","${anamnese.alreadyPracticed}","${anamnese.practiceAnyExercise}","${anamnese.exerciseDescription}","${anamnese.observation}","${anamnese.observationDescription}", "${anamnese.creationTime}");`);
   }
 
   static update(anamnese){      
@@ -24,4 +23,9 @@ module.exports = class Anamnese{
     return pool.execute(`delete from Anamnese where AnamneseID = ${anamneseID}`);
 
   }
+
+  static getID(datetime){
+    return pool.execute(`select AnamneseID from Anamnese where CreationTime = "${datetime}";`)
+  }
+  
 }

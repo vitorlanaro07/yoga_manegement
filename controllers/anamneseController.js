@@ -14,5 +14,9 @@ module.exports = {
     },
     delete : (anamneseID, req, res) => {
         anamneseModel.delete(anamneseID);
+    },
+    getID : (datetime,req, res) => {
+        return anamneseModel.getID(datetime);
     }
+    
 }

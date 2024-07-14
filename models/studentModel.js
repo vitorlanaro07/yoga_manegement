@@ -10,7 +10,7 @@ module.exports = class Student{
     }
 
     static create(student){
-      return pool.execute(`INSERT INTO Student (Name , Age, Birthdate, Telephone, Genre, StudentStatus, Email, City, Street, State, Number) VALUES ("${student.name}", ${student.age}, "${student.birthdate}" , "${student.telephone}", "${student.genre}" , ${student.studentStatus}, "${student.email}", "${student.city}", "${student.street}", "${student.state}", "${student.number}");`)
+      return pool.execute(`INSERT INTO Student (Name , Age, Birthdate, Telephone, Genre, StudentStatus, Email, City, Street, State, Number, CreationTime, Anamnese_AnamneseID) VALUES ("${student.name}", ${student.age}, "${student.birthdate}" , "${student.telephone}", "${student.genre}" , ${student.studentStatus}, "${student.email}", "${student.city}", "${student.street}", "${student.state}", "${student.number}", "${student.creationTime}", ${student.anamneseID});`)
     }
     
     static update(student){

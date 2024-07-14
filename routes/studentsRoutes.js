@@ -3,7 +3,8 @@ const router = express.Router();
 const studentController = require('../controllers/studentController');
 const anamneseModel = require('../models/anamneseModel');
 const anamneseController = require('../controllers/anamneseController');
-const dateUtil = require('../utils/date')
+const dateUtil = require('../utils/date');
+const date = require('../utils/date');
 
 
 router.get("/", (req, res) => {
@@ -38,7 +39,7 @@ router.get('/student/:id', async (req, res) => {
                 id: studentResult[0][0].StudentID,
                 name : studentResult[0][0].Name,
                 age : dateUtil.getAge(studentResult[0][0].Birthdate),
-                birthdate : dateUtil.getDataFormated(studentResult[0][0].Birthdate),
+                birthdate : dateUtil.getBirthdateFormated(studentResult[0][0].Birthdate),
                 email : studentResult [0][0].Email,
                 genre : studentResult[0][0].Genre,
                 studentStatus : studentResult[0][0].StudentStatus,
@@ -112,19 +113,21 @@ router.post('/remove/:id', (req, res) => {
     anamneseController.delete(studentID);
 })
 
-router.post("/students", (req, res) => {
+router.post("/students", async (req, res) => {
+
     newStudent = {
         name : req.body.name,
         age : dateUtil.getAge(req.body.birthdate),
-        birthdate : dateUtil.getDataFormated(req.body.birthdate),
+        birthdate : dateUtil.getBirthdateFormated(req.body.birthdate),
         email : req.body.email,
-        telephone : req.body.phone,
+        telephone : req.body.telephone,
         genre : req.body.genre,
         studentStatus : req.body.studentStatus,
         city : req.body.city,
         street : req.body.street,
         state : req.body.state,
-        number : req.body.number
+        number : req.body.number,
+        creationTime : dateUtil.getDateTime()
     }
     newAnamnese = {
         spineIssues: req.body.spineIssues,
@@ -141,12 +144,26 @@ router.post("/students", (req, res) => {
         practiceAnyExercise : req.body.practiceAnyExercise,
         exerciseDescription : req.body.exerciseDescription,
         observation : req.body.observation,
-        observationDescription : req.body.observationDescription
+        observationDescription : req.body.observationDescription,
+        creationTime : dateUtil.getDateTime()
     }
 
-    studentController.create(newStudent);
-    anamneseController.create(newAnamnese);
-    res.redirect('students');
+    try{
+        anamneseController.create(newAnamnese);
+        setTimeout(async ()  => {
+            anamneseID =  await anamneseController.getID(newAnamnese.creationTime);
+            console.log(anamneseID[0][0].AnamneseID);
+            newStudent.anamneseID = anamneseID[0][0].AnamneseID;
+            studentController.create(newStudent);
+            res.redirect('students');
+        },50)
+    } catch (err) {
+        console.log(err);
+        res.redirect('students');
+
+    }
+
+
 })
 
 router.get('/notifications',(req, res) => {
