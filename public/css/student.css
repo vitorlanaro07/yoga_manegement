@@ -76,6 +76,7 @@ table th, table td{
     padding: 1em;
     color: var(--color-table);
     text-align: center;
+    text-transform:capitalize;
 }
 
 .student-active{
@@ -131,6 +132,8 @@ table th, table td{
 
 input[type=text],input[type=tel],input[type=email],input[type=date], select{
     padding: 2px 6px;
+    border: solid black 1px;
+    border-radius: 3px;
 }
 
 .form-align-center{
@@ -170,8 +173,9 @@ input[type=text],input[type=tel],input[type=email],input[type=date], select{
     padding: 5px 11px;
 }
 
-.message-errors{
+.message-container{
     text-align: center;
+    display: none;
 }
 
 .message-error{

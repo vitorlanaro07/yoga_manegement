@@ -2,7 +2,7 @@ const pool = require('../config/db-config');
 
 module.exports = class Student{
     static fetchAll(){
-      return pool.execute('select * from Student');
+      return pool.execute('select * from Student order by StudentID;');
     }
   
     static fetchById(id){

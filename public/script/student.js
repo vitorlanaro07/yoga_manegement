@@ -1,7 +1,4 @@
 
-
-
-
 const btnNewStudent = document.querySelector('.new-student');
 const table = document.querySelector('.table');
 const forms = document.querySelector('.forms-new-student');
@@ -90,14 +87,69 @@ function listeningClicks(checkYes, checkNo, hasTextArea){
 }
 
 //validate input date
-dateForms = document.querySelector("#birthdate");
+inputs = document.querySelectorAll('input');
+label = document.querySelectorAll('label');
+verify = [];
+
+//listening the press to clear the error message
+for(let i = 10; i < 14; i++){
+    inputs[i].addEventListener("keypress", (event) => {
+        if(inputs[i].value != ""){
+            verify[i] = true;
+        }
+        if(verify[10] == verify[11] == verify[12] == verify[13]){
+            messageContainer.style.display = "none";
+        }
+    })
+}
+
+//error message and error emphasis
+messageContainer= document.querySelector('.message-container');
+messageText = document.querySelector('.message-error');
 submitButton = document.querySelector("#submitButton");
+birthdateForms = document.querySelector("#birthdate");
+birthdateLabel = document.querySelector('.birthdateLabel');
 
-console.log(dateForms.value);
+submitButton.addEventListener("click", (e) => {
+    
+    for(let i = 10; i < 14 ; i++){
+        if(inputs[i].value == ""){
+            //message
+            messageContainer.style.display = "block";
+            messageText.innerHTML = "Fill all the fields";
 
-submitButton.addEventListener("click", (event) => {
-    if(dateForms.value == ""){
+            e.preventDefault();
+            //change color
+            inputs[i].style.borderColor = "red";
+            label[i - 1].style.color = "red";
+        } else{
+            //change color
+            inputs[i].style.borderColor = "black";
+            label[i - 1].style.color = "black";
+        }
+    }
+
+    //if the key was pressed then clear the red emphasis in the label and input
+    for(let i = 10; i < 14 ; i++){
+        inputs[i].addEventListener('keypress', () => {
+            if(inputs[i].value == ""){
+                inputs[i].style.borderColor = "black";
+                label[i - 1].style.color = "black";
+            }
+        })
+    }
+
+})
+
+
+
+//listening the input date to validate the value
+birthdateForms.addEventListener("keyup", (event) => {
+    if (birthdateForms.value.split("-")[0].length > 4){
+        messageContainer.style.display = "block";
+        messageText.innerHTML = "Invalid Date";
         event.preventDefault();
-        alert("Put a date, Please");
+    }else{
+        messageContainer.style.display = "none";
     }
 })

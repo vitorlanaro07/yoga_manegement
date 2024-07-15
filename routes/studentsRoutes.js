@@ -17,7 +17,6 @@ router.get("/", (req, res) => {
 router.get("/students", async (req, res) =>  {
     try{
         result =  await studentController.fetchAllStudents();
-        // console.log(result);
         res.render('students', {
             title: 'Students | Yoga Management',
             additionalCss: '/css/student.css',
@@ -115,52 +114,57 @@ router.post('/remove/:id', (req, res) => {
 })
 
 router.post("/students", async (req, res) => {
-    console.log(req.body.birthdate);
-    newStudent = {
-        name : req.body.name,
-        age : dateUtil.getAge(req.body.birthdate),
-        birthdate : req.body.birthdate,
-        email : req.body.email,
-        telephone : req.body.telephone,
-        genre : req.body.genre,
-        studentStatus : req.body.studentStatus,
-        city : req.body.city,
-        street : req.body.street,
-        state : req.body.state,
-        number : req.body.number,
-        creationTime : dateUtil.getDateTime()
-    }
-    newAnamnese = {
-        spineIssues: req.body.spineIssues,
-        spineDescription : req.body.spineDescription,
-        surgery : req.body.surgery,
-        surgeryDescription : req.body.surgeryDescription,
-        pain : req.body.pain,
-        painDescription : req.body.painDescription,
-        hypertension : req.body.hypertension,
-        heartDisease : req.body.heartDisease,
-        hearingIssues : req.body.hearingIssues,
-        labyrinthitis : req.body.labyrinthitis,
-        alreadyPracticed : req.body.alreadyPracticed,
-        practiceAnyExercise : req.body.practiceAnyExercise,
-        exerciseDescription : req.body.exerciseDescription,
-        observation : req.body.observation,
-        observationDescription : req.body.observationDescription,
-        creationTime : dateUtil.getDateTime()
-    }
-
     try{
-        anamneseController.create(newAnamnese);
-        setTimeout(async ()  => {
-            anamneseID =  await anamneseController.getID(newAnamnese.creationTime);
-            newStudent.anamneseID = anamneseID[0][0].AnamneseID;
-            studentController.create(newStudent);
+        newStudent = {
+            name : req.body.name,
+            age : dateUtil.getAge(req.body.birthdate),
+            birthdate : req.body.birthdate,
+            email : req.body.email,
+            telephone : req.body.telephone,
+            genre : req.body.genre,
+            studentStatus : req.body.studentStatus,
+            city : req.body.city,
+            street : req.body.street,
+            state : req.body.state,
+            number : req.body.number,
+            creationTime : dateUtil.getDateTime()
+        }
+        newAnamnese = {
+            spineIssues: req.body.spineIssues,
+            spineDescription : req.body.spineDescription,
+            surgery : req.body.surgery,
+            surgeryDescription : req.body.surgeryDescription,
+            pain : req.body.pain,
+            painDescription : req.body.painDescription,
+            hypertension : req.body.hypertension,
+            heartDisease : req.body.heartDisease,
+            hearingIssues : req.body.hearingIssues,
+            labyrinthitis : req.body.labyrinthitis,
+            alreadyPracticed : req.body.alreadyPracticed,
+            practiceAnyExercise : req.body.practiceAnyExercise,
+            exerciseDescription : req.body.exerciseDescription,
+            observation : req.body.observation,
+            observationDescription : req.body.observationDescription,
+            creationTime : dateUtil.getDateTime()
+        }
+    
+        try{
+            anamneseController.create(newAnamnese);
+            setTimeout(async ()  => {
+                anamneseID =  await anamneseController.getID(newAnamnese.creationTime);
+                newStudent.anamneseID = anamneseID[0][0].AnamneseID;
+                studentController.create(newStudent);
+                res.redirect('students');
+            },50)
+        } catch (err) {
             res.redirect('students');
-        },50)
-    } catch (err) {
+        }
+    } catch (err){
+        console.log(err);
         res.redirect('students');
 
     }
+    
 
 
 })
