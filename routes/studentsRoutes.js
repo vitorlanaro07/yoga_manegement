@@ -33,6 +33,7 @@ router.get('/student/:id', async (req, res) => {
     try{
         studentResult = await studentController.fetchByID(req.params.id);        
         anamneseResult = await anamneseController.fetchAnamneseByID(req.params.id);
+        // console.log(studentResult[0][0].Birthdate, "oii");
         res.render('studentRead', {
                 title: `Yoga Management`,
                 additionalCss: '/css/studentRead.css',
@@ -74,7 +75,7 @@ router.post("/student/:id", (req, res) => {
         name : req.body.name,
         birthdate : req.body.birthdate,
         email : req.body.email,
-        telephone : req.body.phone,
+        telephone : req.body.telephone,
         genre : req.body.genre,
         status : req.body.status,
         city : req.body.city,
@@ -114,11 +115,11 @@ router.post('/remove/:id', (req, res) => {
 })
 
 router.post("/students", async (req, res) => {
-
+    console.log(req.body.birthdate);
     newStudent = {
         name : req.body.name,
         age : dateUtil.getAge(req.body.birthdate),
-        birthdate : dateUtil.getBirthdateFormated(req.body.birthdate),
+        birthdate : req.body.birthdate,
         email : req.body.email,
         telephone : req.body.telephone,
         genre : req.body.genre,
@@ -152,13 +153,11 @@ router.post("/students", async (req, res) => {
         anamneseController.create(newAnamnese);
         setTimeout(async ()  => {
             anamneseID =  await anamneseController.getID(newAnamnese.creationTime);
-            console.log(anamneseID[0][0].AnamneseID);
             newStudent.anamneseID = anamneseID[0][0].AnamneseID;
             studentController.create(newStudent);
             res.redirect('students');
         },50)
     } catch (err) {
-        console.log(err);
         res.redirect('students');
 
     }

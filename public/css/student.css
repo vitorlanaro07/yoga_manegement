@@ -170,6 +170,14 @@ input[type=text],input[type=tel],input[type=email],input[type=date], select{
     padding: 5px 11px;
 }
 
+.message-errors{
+    text-align: center;
+}
+
+.message-error{
+    color: red;
+}
+
 .button-form{
     border-radius: 3px;
     border: none;

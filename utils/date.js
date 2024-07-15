@@ -9,11 +9,14 @@ function getDataFormated(date){
 
 function validate(date){
     if (date[0].length == 1){
-        date[0] = "0" + date[0];
+        date[0] = `0${date[0]}`
     }
-    if (date[1].length == 1){
-        date[1] = "0" + (parseInt(date[1]));
+    // typeof(date[1])
+
+    if (date[1].length == 1 || toString(date[1]).length == 1){
+        date[1] = `0${date[1]}`
     }
+
     newDataFormated = date[2] + "-" + date[0] + "-" + date[1];
     return newDataFormated
 }
@@ -37,12 +40,9 @@ module.exports = {
         return age;
     },
     getBirthdateFormated : (date) => {
-        dateFormated = new Date(date).toLocaleDateString().split("/");
-        dateFormated[1] = parseInt(dateFormated[1]) + 1;
-
-        newDataFormated = validate(dateFormated);
-        
-        return newDataFormated;
+        partsOfTime = new Date(date).toLocaleDateString().split('/');
+        result = validate(partsOfTime);
+        return result;
     },
     getDateTime : () => {
         dateToday = new Date().toLocaleDateString().split("/");   

@@ -88,3 +88,16 @@ function listeningClicks(checkYes, checkNo, hasTextArea){
         }
     })
 }
+
+//validate input date
+dateForms = document.querySelector("#birthdate");
+submitButton = document.querySelector("#submitButton");
+
+console.log(dateForms.value);
+
+submitButton.addEventListener("click", (event) => {
+    if(dateForms.value == ""){
+        event.preventDefault();
+        alert("Put a date, Please");
+    }
+})
